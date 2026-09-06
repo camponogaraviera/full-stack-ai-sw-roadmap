@@ -1,6 +1,6 @@
 <div align='center'>
     <h1> 3.3 Backend </h1>
-    <h2> 3.3.2 API Development and Communication</h2>
+    <h2> 3.3.3 API Development and Communication</h2>
     <h3> gRPC APIs </h3>
 </div>
 
