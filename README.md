@@ -44,9 +44,9 @@ Implementations follow official documentation, and references are provided throu
   - 1.3 Package Management
 
 - [2. Programming Fundamentals](#programming)
-  - 2.1 Modern JavaScript ES6+
+  - 2.1 Modern JavaScript (ES6+)
   - 2.2 TypeScript
-  - 2.3 Data Structures and Algorithms in Python, JavaScript (ES6+), and C++
+  - 2.3 Data Structures and Algorithms in Python, Modern JavaScript (ES6+), and Modern C++
 
 - [3. Full-Stack Development](#fullstack)
   - 3.1 Software Design & Architecture
@@ -59,8 +59,8 @@ Implementations follow official documentation, and references are provided throu
 - [4. AI Roadmap](#ai) (Theory and Implementation)
   - 4.1 Deep Learning Roadmap + Technical Interview
   - 4.2 TensorFlow & PyTorch: API Tutorial
-  - 4.3 RL Roadmap: Theory and Implementations of Deep Reinforcement Learning Algorithms
-  - 4.4 LLM Roadmap + Technical Interview
+  - 4.3 Reinforcement Learning Roadmap: Theory and Implementations of Deep Reinforcement Learning Algorithms in TensorFlow and PyTorch
+  - 4.4 Large Language Model Roadmap: End-to-end Large Language Models in PyTorch + Technical Interview
 
 - [5. Mock System Design Interviews with AWS](#interviews)
   - Design a Restaurant Reservation System
