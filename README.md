@@ -49,7 +49,7 @@ Implementations follow official documentation, and references are provided throu
   - 2.3 Data Structures and Algorithms in Python, JavaScript (ES6+), and C++
 
 - [3. Full-Stack Development](#fullstack)
-  - 3.1 Presentation-Layer Architectural Patterns
+  - 3.1 Software Design & Architecture
   - 3.2 Frontend
   - 3.3 Backend
   - 3.4 Software Development Life Cycle (SDLC)
@@ -147,9 +147,15 @@ Implementations follow official documentation, and references are provided throu
 <details>
   <summary><h1 id="fullstack"> 3. Full-Stack  Development </h1></summary>
 
-  <!-- #region Presentation-Layer Architectural Patterns -->
+  <!-- #region Software Design & Architecture -->
   <details>
-    <summary><h2 id="patterns">3.1 Presentation-Layer Architectural Patterns</h2></summary>
+    <summary><h2 id="patterns">3.1 Software Design & Architecture</h2></summary>
+
+### 3.1.1 Software Design Principles
+
+- [SOLID Principles](design/solid.md)
+
+### 3.1.2 Presentation-Layer Architectural Patterns
 
 - [Model-View-Controller (MVC)](patterns/mvc.md)
 - [Model-View-Presenter (MVP)](patterns/mvp.md)
