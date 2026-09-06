@@ -166,8 +166,10 @@ Implementations follow official documentation, and references are provided throu
 
 ### 3.1.3 Application/System Architectural Patterns
 
-- [Clean Architecture](patterns/clean.md)
+- [Layered Architecture](patterns/layered.md)
 - [Hexagonal Architecture](patterns/hexagonal.md)
+- [Onion Architecture](patterns/onion.md)
+- [Clean Architecture](patterns/clean.md)
 
   </details>
   <!-- #endregion -->
