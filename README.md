@@ -291,14 +291,22 @@ Implementations follow official documentation, and references are provided throu
     <summary><h2 id="sdlc">3.4 Software Development Life Cycle (SDLC)</h2></summary>
 
 3.4.1. [Big Bang Model](sdlc/big_bang.md)
+
 3.4.2. [Waterfall Model](sdlc/waterfall.md)
+
 3.4.3. [Validation and Verification Model (V-Model)](sdlc/v_model.md)
+
 3.4.4. [Iterative Model](sdlc/iterative.md)
+
 3.4.5. [Incremental Model](sdlc/incremental.md)
+
 3.4.6. [Rapid Application Development (RAD) Model](sdlc/rad.md)
+
 3.4.7. [Spiral Model](sdlc/spiral.md)
-3.4.8. [Agile Model](sdlc/agile.md)
-9. [DevOps Model](sdlc/devops.md)
+
+3.4.8. [Agile Model](sdlc/agile.md)
+
+3.4.9. [DevOps Model](sdlc/devops.md)
 
   </details>
   <!-- #endregion -->
