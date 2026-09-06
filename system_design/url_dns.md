@@ -160,4 +160,5 @@ CNAME records (name and value) are typically used for domain verification via DN
 # References
 
 [1] https://www.cloudflare.com/learning/dns/glossary/round-robin-dns/
+
 [2] https://aws.amazon.com/compare/the-difference-between-ssl-and-tls/
