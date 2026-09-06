@@ -181,9 +181,9 @@ Implementations follow official documentation, and references are provided throu
     <summary><h2 id="frontend">3.2 Frontend</h2></summary>
 
 ### 3.2.1 Web Application Architecture Styles
-
-- [Single-Page Application (SPA)](frontend/architectures/spa.md)
+
 - [Multi-page Applications (MPA)](frontend/architectures/mpa.md)
+- [Single-Page Application (SPA)](frontend/architectures/spa.md)
 
 ### 3.2.2 Rendering Strategies
 
