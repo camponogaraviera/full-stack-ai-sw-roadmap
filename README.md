@@ -233,16 +233,16 @@ Implementations follow official documentation, and references are provided throu
   - Event Sourcing Pattern
 
 ### 3.3.2 API Development and Communication
-
-- [JSON Web Tokens and Refresh Tokens](backend/api/jwt_and_refresh_tokens.md)
+
 - [RESTful APIs](backend/api/restfull_api.md)
-- [GraphQL APIs](backend/api/graphql.md)
-  - [Apollo](backend/api/apollo.md)
-- [gRPC APIs](backend/api/gRPC.md)
-- [CORS](backend/api/cors.md)
-- [Polling vs. WebSockets](backend/api/web_sockets.md)
-- [WebRTC](backend/api/webrtc.md)
 - [ORM & ODM](backend/api/orm_odm.md)
+- [CORS](backend/api/cors.md)
+- [Authentication: JSON Web Tokens (JWT) and Refresh Tokens](backend/api/jwt_and_refresh_tokens.md)
+- [GraphQL APIs](backend/api/graphql.md)
+  - [Apollo](backend/api/apollo.md)
+- [Real-Time Communication: Polling vs. WebSockets](backend/api/web_sockets.md)
+- [gRPC APIs](backend/api/gRPC.md)
+- [WebRTC](backend/api/webrtc.md)
 
 ### 3.3.3 Database Fundamentals
 
