@@ -237,7 +237,7 @@ Implementations follow official documentation, and references are provided throu
 - [RESTful APIs](backend/api/restfull_api.md)
 - [ORM & ODM](backend/api/orm_odm.md)
 - [CORS](backend/api/cors.md)
-- [Authentication: JSON Web Tokens (JWT) and Refresh Tokens](backend/api/jwt_and_refresh_tokens.md)
+- [Authentication: JSON Web Tokens and Refresh Tokens](backend/api/jwt_and_refresh_tokens.md)
 - [GraphQL APIs](backend/api/graphql.md)
   - [Apollo](backend/api/apollo.md)
 - [Real-Time Communication: Polling vs. WebSockets](backend/api/web_sockets.md)
