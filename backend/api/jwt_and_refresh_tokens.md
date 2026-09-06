@@ -1,7 +1,7 @@
 <div align='center'>
     <h1> 3.3 Backend </h1>
     <h2> 3.3.2 API Development and Communication</h2>
-    <h3> JSON Web Tokens and Refresh Tokens </h3>
+    <h3> Authentication: JSON Web Tokens (JWT) and Refresh Tokens </h3>
 </div>
 
 # Table of Contents
