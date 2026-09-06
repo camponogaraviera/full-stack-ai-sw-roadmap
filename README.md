@@ -122,13 +122,13 @@ Implementations follow official documentation, and references are provided throu
 
   <!-- #region DSA -->
   <details>
-    <summary><h2 id="dsa">2.3 Data Structures and Algorithms in Python, JavaScript (ES6+), and C++ </h2></summary>
+    <summary><h2 id="dsa">2.3 Data Structures and Algorithms in Python, Modern JavaScript (ES6+), and Modern C++ </h2></summary>
   
   - [Theoretical Fundamentals](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/theory/README.md) 
   - Implementations:
     - [Python](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/implementations/python/README.md)
-    - [JavaScript](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/implementations/javascript/README.md)
-    - [C++](https://github.com/camponogaraviera/ds-and-algo-cpp/blob/main/ds_and_algo_cpp/implementations/README.md)
+    - [Modern JavaScript (ES6+)](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/implementations/javascript/README.md)
+    - [Modern C++](https://github.com/camponogaraviera/ds-and-algo-cpp/blob/main/ds_and_algo_cpp/implementations/README.md)
   - [Interview Questions](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/interview_prep/questions/README.md) 
   - LeetCode Problems
     - [Python](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/implementations/python/README.md)
