@@ -215,36 +215,8 @@ Implementations follow official documentation, and references are provided throu
   <!-- #region Backend -->
   <details>
     <summary><h2 id="backend">3.3 Backend</h2></summary>
-    
-  ### 3.3.1 System Architectural Styles & Patterns
-
-- Code base/Deployment Architecture Styles:
-  - [Monolithic vs Microservices](backend/architecture/mono_vs_micro.md)
-
-- API Design Patterns:
-  - [Backend for Frontend (BFF)](backend/patterns/bff.md)
-  - [API Composition Pattern](backend/patterns/api_cp.md)
-
-- [Data Patterns for Distributed Systems](backend/patterns/data_patterns.md)
-  - Saga Pattern
-  - Database-Per-Service Pattern
-  - Shared-Database-Per-Service Anti-Pattern
-  - CQRS Pattern
-  - Event Sourcing Pattern
-
-### 3.3.2 API Development and Communication
-
-- [RESTful APIs](backend/api/restfull_api.md)
-- [ORM & ODM](backend/api/orm_odm.md)
-- [CORS](backend/api/cors.md)
-- [Authentication: JSON Web Tokens and Refresh Tokens](backend/api/jwt_and_refresh_tokens.md)
-- [GraphQL APIs](backend/api/graphql.md)
-  - [Apollo](backend/api/apollo.md)
-- [Real-Time Communication: Polling vs. WebSockets](backend/api/web_sockets.md)
-- [gRPC APIs](backend/api/gRPC.md)
-- [WebRTC](backend/api/webrtc.md)
-
-### 3.3.3 Database Fundamentals
+    
+### 3.3.1 Database Fundamentals
 
 - Database Models
   - [Relational Databases](backend/database/core/relational_db.md)
@@ -276,10 +248,38 @@ Implementations follow official documentation, and references are provided throu
     - Quadtrees
   - [Query optimization with Indexing](backend/database/core/query_optimization.md)
 
-### 3.3.4 Database Technologies
+### 3.3.2 Database Technologies
 
 - [DynamoDB](backend/database/technologies/dynamodb.md)
 - [Neo4j](backend/database/technologies/neo4j.md)
+
+### 3.3.3 API Development and Communication
+
+- [RESTful APIs](backend/api/restfull_api.md)
+- [ORM & ODM](backend/api/orm_odm.md)
+- [CORS](backend/api/cors.md)
+- [Authentication: JSON Web Tokens and Refresh Tokens](backend/api/jwt_and_refresh_tokens.md)
+- [GraphQL APIs](backend/api/graphql.md)
+  - [Apollo](backend/api/apollo.md)
+- [Real-Time Communication: Polling vs. WebSockets](backend/api/web_sockets.md)
+- [gRPC APIs](backend/api/gRPC.md)
+- [WebRTC](backend/api/webrtc.md)
+
+### 3.3.4 System Architectural Styles & Patterns
+
+- Code base/Deployment Architecture Styles:
+  - [Monolithic vs Microservices](backend/architecture/mono_vs_micro.md)
+
+- API Design Patterns:
+  - [Backend for Frontend (BFF)](backend/patterns/bff.md)
+  - [API Composition Pattern](backend/patterns/api_cp.md)
+
+- [Data Patterns for Distributed Systems](backend/patterns/data_patterns.md)
+  - Saga Pattern
+  - Database-Per-Service Pattern
+  - Shared-Database-Per-Service Anti-Pattern
+  - CQRS Pattern
+  - Event Sourcing Pattern
 
   </details>
   <!-- #endregion -->
