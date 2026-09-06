@@ -164,6 +164,11 @@ Implementations follow official documentation, and references are provided throu
 - [Model-View-Presenter (MVP)](patterns/mvp.md)
 - [Model-View-ViewModel (MVVM)](patterns/mvvm.md)
 
+### 3.1.3 Application/System Architectural Patterns
+
+- [Clean Architecture](patterns/clean.md)
+- [Hexagonal Architecture](patterns/hexagonal.md)
+
   </details>
   <!-- #endregion -->
 
