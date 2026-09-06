@@ -132,8 +132,8 @@ Implementations follow official documentation, and references are provided throu
   - [Interview Questions](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/interview_prep/questions/README.md) 
   - LeetCode Problems
     - [Python](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/implementations/python/README.md)
-    - [JavaScript](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/implementations/javascript/README.md)
-    - [C++](https://github.com/camponogaraviera/ds-and-algo-cpp/blob/main/ds_and_algo_cpp/interview_prep/leetcode/README.md)
+    - [Modern JavaScript (ES6+)](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/implementations/javascript/README.md)
+    - [Modern C++](https://github.com/camponogaraviera/ds-and-algo-cpp/blob/main/ds_and_algo_cpp/interview_prep/leetcode/README.md)
   
   </details>
   <!-- #endregion -->
