@@ -153,7 +153,10 @@ Implementations follow official documentation, and references are provided throu
 
 ### 3.1.1 Software Design Principles
 
-- [SOLID Principles](design/solid.md)
+- [SOLID](design/solid.md)
+- [DRY](design/dry.md)
+- [KISS](design/kiss.md)
+- [YAGNI](design/yagni.md)
 
 ### 3.1.2 Presentation-Layer Architectural Patterns
 
