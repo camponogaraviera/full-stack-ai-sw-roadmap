@@ -1,6 +1,6 @@
 <div align='center'>
-    <h1> 3.2 Backend </h1>
-    <h2> 3.2.2 API Development and Communication</h2>
+    <h1> 3.3 Backend </h1>
+    <h2> 3.3.3 API Development and Communication</h2>
     <h3> CORS </h3>
 </div>
 
