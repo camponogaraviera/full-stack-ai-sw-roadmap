@@ -49,11 +49,12 @@ Implementations follow official documentation, and references are provided throu
   - 2.3 Data Structures and Algorithms in Python, JavaScript (ES6+), and C++
 
 - [3. Full-Stack Development](#fullstack)
-  - 3.1 Frontend
-  - 3.2 Backend
-  - 3.3 Software Development Life Cycle (SDLC)
-  - 3.4 System Design
-  - 3.5 AWS Roadmap + Technical Interview
+  - 3.1 Presentation-Layer Architectural Patterns
+  - 3.2 Frontend
+  - 3.3 Backend
+  - 3.4 Software Development Life Cycle (SDLC)
+  - 3.5 System Design
+  - 3.6 AWS Roadmap + Technical Interview
 
 - [4. AI Roadmap](#ai) (Theory and Implementation)
   - 4.1 Deep Learning Roadmap + Technical Interview
@@ -146,7 +147,7 @@ Implementations follow official documentation, and references are provided throu
 <details>
   <summary><h1 id="fullstack"> 3. Full-Stack  Development </h1></summary>
 
-  <!-- #region UI Architectural Patterns -->
+  <!-- #region Presentation-Layer Architectural Patterns -->
   <details>
     <summary><h2 id="patterns">3.1 Presentation-Layer Architectural Patterns</h2></summary>
 
