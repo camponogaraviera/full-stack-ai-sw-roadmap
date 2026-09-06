@@ -1,6 +1,6 @@
 <div align='center'>
     <h1> 3.3 Backend </h1>
-    <h2> 3.3.3 Database Fundamentals </h2>
+    <h2> 3.3.1 Database Fundamentals </h2>
     <h3> Database Models </h3>
     <h4> Relational Databases </h4>
 </div>
