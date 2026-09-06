@@ -292,12 +292,12 @@ Implementations follow official documentation, and references are provided throu
 
 - [Big Bang Model](sdlc/big_bang.md)
 - [Waterfall Model](sdlc/waterfall.md)
+- [Validation and Verification Model (V-Model)](sdlc/v_model.md)
 - [Iterative Model](sdlc/iterative.md)
 - [Incremental Model](sdlc/incremental.md)
-- [Spiral Model](sdlc/spiral.md)
-- [Agile Model](sdlc/agile.md)
-- [Validation and Verification Model (V-Model)](sdlc/v_model.md)
 - [Rapid Application Development (RAD) Model](sdlc/rad.md)
+- [Spiral Model](sdlc/spiral.md)
+- [Agile Model](sdlc/agile.md)
 - [DevOps Model](sdlc/devops.md)
 
   </details>
