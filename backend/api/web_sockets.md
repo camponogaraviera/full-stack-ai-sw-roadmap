@@ -1,7 +1,7 @@
 <div align='center'>
     <h1> 3.3 Backend </h1>
     <h2> 3.3.2 API Development and Communication</h2>
-    <h3> Polling vs. WebSockets </h3>
+    <h3> Real-Time Communication: Polling vs. WebSockets </h3>
 </div>
 
 # Table of Contents
