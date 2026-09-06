@@ -10,6 +10,7 @@
 - [Round-robin DNS](#round-robin-dns)
 - [GeoDNS](#geodns)
 - [SSL vs TLS](#ssl-vs-tls)
+- [SSL Pinning](#ssl-pinning)
 - [Registry vs Registrar](#registry-vs-registrar)
 
 ---
@@ -134,6 +135,12 @@ To install an SSL/TLS certificate on a server or third-party provider, the follo
 To acquire these files, you should obtain a public certificate from an external certificate authority (CA) that allows you to download both the certificate and private key. Some popular CA options include: [Let's Encrypt](https://letsencrypt.org/getting-started/), [SSL For Free](https://www.sslforfree.com), `ZeroSSL`, `Sectigo`, or other paid providers.
 
 CNAME records (name and value) are typically used for domain verification via DNS validation, and they are not included in the certificate export (not part of the certificate itself).
+
+---
+
+# SSL Pinning
+
+...
 
 ---
 
