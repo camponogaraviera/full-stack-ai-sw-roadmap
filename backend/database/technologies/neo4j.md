@@ -1,6 +1,6 @@
 <div align='center'>
     <h1> 3.3 Backend </h1>
-    <h2> 3.3.4 Database Technologies </h2>
+    <h2> 3.3.2 Database Technologies </h2>
     <h3> Neo4j </h3>
 </div>
 
