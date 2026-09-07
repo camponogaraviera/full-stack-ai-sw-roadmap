@@ -1,8 +1,6 @@
 <div align='center'>
-    <h1> 3.3 Backend </h1>
-    <h2> 3.3.1 Database Fundamentals </h2>
-    <h3> Database Models </h3>
-    <h4> Vector Databases </h4>
+    <h1> Database Models </h1>
+    <h2> Vector Databases </h2>
 </div>
 
 # Table of Contents
