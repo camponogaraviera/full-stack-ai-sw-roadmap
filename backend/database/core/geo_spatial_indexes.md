@@ -1,8 +1,6 @@
 <div align='center'>
-    <h1> 3.3 Backend </h1>
-    <h2> 3.3.1 Database Fundamentals </h2>
-    <h3> Indexing & Query Optimization </h3>
-    <h4> Geospatial Indexes </h4>
+    <h1> Indexing & Query Optimization </h1>
+    <h2> Geospatial Indexes </h2>
 </div>
 
 # Table of Contents
