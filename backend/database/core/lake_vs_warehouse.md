@@ -1,8 +1,6 @@
 <div align='center'>
-    <h1> 3.3 Backend </h1>
-    <h2> 3.3.1 Database Fundamentals </h2>
-    <h3> Data Architecture & Workload Patterns </h3>
-    <h4> Data Lakes vs Data Warehouses </h4>
+    <h1> Data Architecture & Workload Patterns </h1>
+    <h2> Data Lakes vs Data Warehouses </h2>
 </div>
 
 # Table of Contents
