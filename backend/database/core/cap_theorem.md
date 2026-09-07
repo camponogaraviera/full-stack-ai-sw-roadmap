@@ -1,8 +1,5 @@
 <div align='center'>
-    <h1> 3.3 Backend </h1>
-    <h2> 3.3.1 Database Fundamentals </h2>
-    <h3> Transactions, Consistency & Scaling </h3>
-    <h4> CAP Theorem a.k.a Brewer's Theorem </h4>
+    <h1> CAP Theorem a.k.a Brewer's Theorem </h1>
 </div>
 
 # Table of Contents
