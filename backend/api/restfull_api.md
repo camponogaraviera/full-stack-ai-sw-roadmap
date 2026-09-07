@@ -1,7 +1,6 @@
 <div align='center'>
-    <h1> 3.3 Backend </h1>
-    <h2> 3.3.3 API Development and Communication</h2>
-    <h3> RESTful APIs </h3>
+    <h1> 3.3.3 API Development and Communication</h1>
+    <h2> RESTful APIs </h2>
 </div>
 
 # Table of Contents
