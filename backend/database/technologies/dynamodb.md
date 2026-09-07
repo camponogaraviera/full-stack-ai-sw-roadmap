@@ -1,6 +1,6 @@
-<div align='center'>
-    <h1> 3.3.2 Database Technologies </h1>
-    <h2> DynamoDB </h2>
+<div align="center">
+  <h1>Database Technologies</h1>
+  <h2>DynamoDB</h2>
 </div>
 
 # Table of Contents
