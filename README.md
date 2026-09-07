@@ -223,30 +223,28 @@ Implementations follow official documentation, and references are provided throu
   - [Non-Relational (NoSQL) Databases](backend/database/core/non_relational_db.md)
   - [Vector Databases](backend/database/core/vector_db.md)
 
-- Data Architecture & Workload Patterns
-  - [OLAP vs OLTP](backend/database/core/olap_vs_oltp.md)
-  - [Data Lake vs Data Warehouse](backend/database/core/lake_vs_warehouse.md)
-
 - Data Modeling & Schema Design
   - [Data Normalization vs Denormalization](backend/database/core/norm_denorm.md)
 
-- Transactions & Consistency Models
+- Data Architecture & Workload Patterns
+  - [OLAP vs OLTP](backend/database/core/olap_vs_oltp.md)
+  - [Data Lake vs Data Warehouse](backend/database/core/lake_vs_warehouse.md) 
+
+- Transactions, Consistency & Scaling 
   - [ACID Properties](backend/database/core/acid.md)
   - [BASE Properties](backend/database/core/base.md)
+  - [CAP Theorem a.k.a Brewer's Theorem](backend/database/core/cap_theorem.md) 
 
-- Distributed Systems Theory
-  - [CAP Theorem a.k.a Brewer's Theorem](backend/database/core/cap_theorem.md)
-
-- Concurrency & Performance Bottlenecks
-  - [Database Contention](backend/database/core/contention.md)
-  - [Thundering Herd](backend/database/core/thundering.md)
+- Concurrency & Performance
   - [Deadlocks](backend/database/core/deadlocks.md)
+  - [Database Contention](backend/database/core/contention.md)
+  - [Thundering Herd](backend/database/core/thundering.md)
 
 - Indexing & Query Optimization
+  - [Query optimization with Indexing](backend/database/core/query_optimization.md)
   - [Geo-spatial Indexes](backend/database/core/geo_spatial_indexes.md)
     - Geohashing
-    - Quadtrees
-  - [Query optimization with Indexing](backend/database/core/query_optimization.md)
+    - Quadtrees
 
 ### 3.3.2 Database Technologies
 
