@@ -1,5 +1,5 @@
 <div align='center'>
-    <h1> 3.3.3 API Development and Communication</h1>
+    <h1> API Development and Communication </h1>
     <h2> RESTful APIs </h2>
 </div>
 
