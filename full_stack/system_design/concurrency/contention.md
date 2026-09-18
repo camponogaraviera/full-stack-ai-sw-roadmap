@@ -1,6 +1,6 @@
 <div align='center'>
-    <h1> Concurrency & Performance </h1>
-    <h2> Database Contention </h2>
+    <h1> Concurrency </h1>
+    <h2> Contention </h2>
 </div>
 
 # Table of Contents

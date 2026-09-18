@@ -1,5 +1,6 @@
 <!-- Shields -->
 
+[![Contributions](https://img.shields.io/badge/contributions-welcome-orange?style=flat-square)](https://github.com/camponogaraviera/full-stack-roadmap/pulls)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/camponogaraviera/full-stack-roadmap/graphs/commit-activity)
 
 <!-- Dependencies -->
@@ -44,7 +45,7 @@ Implementations follow official documentation, and references are provided throu
   - 1.3 Package Management
 
 - [2. Programming Fundamentals](#programming)
-  - 2.1 Modern JavaScript (ES6+)
+  - 2.1 Modern JavaScript (ES6+): Fundamentals to Advanced Concepts
   - 2.2 TypeScript
   - 2.3 Data Structures and Algorithms in Python, Modern JavaScript (ES6+), and Modern C++
 
@@ -102,7 +103,7 @@ Implementations follow official documentation, and references are provided throu
   <details>
     <summary><h2 id="javascript">2.1 Modern JavaScript (ES6+)</h2></summary>
     
-  - [Modern JavaScript (ES6+)](https://github.com/camponogaraviera/javascript)
+  - [Modern JavaScript (ES6+): Fundamentals to Advanced Concepts](https://github.com/camponogaraviera/javascript)
 
     </details>
     <!-- #endregion -->
@@ -193,11 +194,14 @@ Implementations follow official documentation, and references are provided throu
 
 ### 3.2.3. Web Application Libraries, Frameworks, and Tools
 
-- [React.js, Next.js, and Vite](full_stack/frontend/web/reactjs.md)
+- Libraries: [React.js](full_stack/frontend/web/reactjs.md)
+- Frameworks: [Next.js](full_stack/frontend/web/nextjs.md)
+- Tools: [Vite](full_stack/frontend/web/vite.md)
 
 ### 3.2.4 Mobile Application Frameworks
 
 - [Fundamentals & Industry Best Practices of React Native with Hooks](https://github.com/camponogaraviera/react-native)
+- [Flutter](full_stack/frontend/mobile/flutter.md)
 
 ### 3.2.5 State Management Patterns and Libraries
 
@@ -230,16 +234,11 @@ Implementations follow official documentation, and references are provided throu
   - [OLAP vs OLTP](full_stack/backend/database/core/olap_vs_oltp.md)
   - [Data Lake vs Data Warehouse](full_stack/backend/database/core/lake_vs_warehouse.md)
 
-- Transactions, Consistency & Scaling
+- Transactions, Consistency & Distributed Data
   - [ACID Properties](full_stack/backend/database/core/acid.md)
   - [BASE Properties](full_stack/backend/database/core/base.md)
   - [CAP Theorem a.k.a Brewer's Theorem](full_stack/backend/database/core/cap_theorem.md)
-
-- Concurrency & Performance
-  - [Deadlocks](full_stack/backend/database/core/deadlocks.md)
-  - [Database Contention](full_stack/backend/database/core/contention.md)
-
-  - [Thundering Herd](full_stack/backend/database/core/thundering.md)
+  - [Partitioning](full_stack/backend/database/core/partitioning.md)
 
 - Indexing & Query Optimization
   - [Query optimization with Indexing](full_stack/backend/database/core/query_optimization.md)
@@ -290,23 +289,23 @@ Implementations follow official documentation, and references are provided throu
   <details>
     <summary><h2 id="sdlc">3.4 Software Development Life Cycle (SDLC)</h2></summary>
 
-3.4.1. [Big Bang Model](full_stack/sdlc/big_bang.md)
+3.4.1 [Big Bang Model](full_stack/sdlc/big_bang.md)
 
-3.4.2. [Waterfall Model](full_stack/sdlc/waterfall.md)
+3.4.2 [Waterfall Model](full_stack/sdlc/waterfall.md)
 
-3.4.3. [Validation and Verification Model (V-Model)](full_stack/sdlc/v_model.md)
+3.4.3 [Validation and Verification Model (V-Model)](full_stack/sdlc/v_model.md)
 
-3.4.4. [Iterative Model](full_stack/sdlc/iterative.md)
+3.4.4 [Iterative Model](full_stack/sdlc/iterative.md)
 
-3.4.5. [Incremental Model](full_stack/sdlc/incremental.md)
+3.4.5 [Incremental Model](full_stack/sdlc/incremental.md)
 
-3.4.6. [Rapid Application Development (RAD) Model](full_stack/sdlc/rad.md)
+3.4.6 [Rapid Application Development (RAD) Model](full_stack/sdlc/rad.md)
 
-3.4.7. [Spiral Model](full_stack/sdlc/spiral.md)
+3.4.7 [Spiral Model](full_stack/sdlc/spiral.md)
 
-3.4.8. [Agile Model](full_stack/sdlc/agile.md)
+3.4.8 [Agile Model](full_stack/sdlc/agile.md)
 
-3.4.9. [DevOps Model](full_stack/sdlc/devops.md)
+3.4.9 [DevOps Model](full_stack/sdlc/devops.md)
 
   </details>
   <!-- #endregion -->
@@ -341,24 +340,23 @@ Implementations follow official documentation, and references are provided throu
 
 ### 3.5.4 [Vertical Scaling](full_stack/system_design/vertical_scaling.md)
 
-### 3.5.5 [Sharding and Horizontal Scaling](full_stack/system_design/horizontal_scaling.md)
+### 3.5.5 [Horizontal Scaling](full_stack/system_design/horizontal_scaling.md)
 
 - Sharding
-- Horizontal Scaling
-  - Load Balancer
-  - Routing Algorithms
-    - Round Robin
-    - Weighted round-robin
-    - Least Connections
-    - Weighted Least Connections
-    - IP Hash
-    - Least Response Time
-    - Random
-    - Least Bandwidth
-  - Consistent Hashing
-  - Database Replication
-  - Multi-master Replication
-  - Bidirectional and Circular Replication
+- Load Balancer
+- Routing Algorithms
+  - Round Robin
+  - Weighted round-robin
+  - Least Connections
+  - Weighted Least Connections
+  - IP Hash
+  - Least Response Time
+  - Random
+  - Least Bandwidth
+- Consistent Hashing
+- Database Replication
+- Multi-master Replication
+- Bidirectional and Circular Replication
 
 ### 3.5.6 [Prefetching and Caching](full_stack/system_design/prefetching_and_caching.md)
 
@@ -372,6 +370,15 @@ Implementations follow official documentation, and references are provided throu
 ### 3.5.7 [Content Delivery Network (CDN)](full_stack/system_design/cdn.md)
 
 ### 3.5.8 [The Hot Spot (Celebrity) Problem](full_stack/system_design/celebrity.md)
+
+### 3.5.9 Concurrency
+
+- [Deadlocks](full_stack/system_design/concurrency/deadlocks.md)
+- [Contention](full_stack/system_design/concurrency/contention.md)
+
+### 3.5.10 Performance
+
+- [Thundering Herd](full_stack/system_design/performance/thundering.md)
 
   </details>
   <!-- #endregion -->
@@ -432,7 +439,7 @@ Implementations follow official documentation, and references are provided throu
 
 (Private)
 
-- [Chat Horizon: Full-Stack AI Web Chat Application with In-Browser LLM Inference](https://github.com/camponogaraviera/chat-horizon-web)
+- [Chat Horizon: Full-Stack AI Web Chat Application with In-Browser LLM Inference](https://github.com/camponogaraviera/chat-horizon-web)
 
 <p align="center">
   <img src="https://github.com/camponogaraviera/camponogaraviera.github.io/blob/main/assets/chat_horizon/frontend1.png" width="45%" />
@@ -449,7 +456,7 @@ Implementations follow official documentation, and references are provided throu
   <img src="https://github.com/camponogaraviera/camponogaraviera.github.io/blob/main/assets/chat_horizon/frontend6.png" width="45%" />
 </p>
 
-- [Social Eats: Full-Stack Social Food Discovery Mobile App with 3D Interactivity](https://github.com/camponogaraviera/social-eats)
+- [Social Eats: Full-Stack Social Food Discovery Mobile App with 3D Interactivity](https://github.com/camponogaraviera/social-eats)
 
 <p align="center">
   <img src="https://github.com/camponogaraviera/camponogaraviera.github.io/blob/main/assets/social_eats/frontend1.jpg" width="25%" />
@@ -483,6 +490,7 @@ Implementations follow official documentation, and references are provided throu
 - [TypeScript GOTO Conference Keynote](https://youtu.be/3dqZW_DqHIQ?si=NB8Pmr8YDg5qn3Ge)
 
 [4] C++:
+
 - [Bjarne Stroustrup's homepage](https://www.stroustrup.com/)
 - [Programming -- Principles and Practice Using C++ (3rd Edition)](https://www.stroustrup.com/programming.html)
 

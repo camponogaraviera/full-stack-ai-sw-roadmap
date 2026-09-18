@@ -1,5 +1,5 @@
 <div align='center'>
-    <h1> Concurrency & Performance </h1>
+    <h1> Performance </h1>
     <h2> Thundering Herd </h2>
 </div>
 

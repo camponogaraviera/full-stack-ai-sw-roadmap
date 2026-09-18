@@ -1,6 +1,6 @@
 <div align='center'>
-    <h1> Concurrency & Performance </h1>
-    <h2> Deadlock </h2>
+    <h1> Concurrency </h1>
+    <h2> Deadlocks </h2>
 </div>
 
 # Table of Contents
