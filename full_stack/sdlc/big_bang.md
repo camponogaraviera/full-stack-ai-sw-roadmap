@@ -3,7 +3,7 @@
     <h2> Big Bang Model </h2>
 </div>
 
-# Big Bang Model
+# About
 
 This model is an ad-hoc and high-risk approach where development is done with little planning. The entire software is built and tested as a whole.
 

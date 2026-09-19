@@ -10,6 +10,7 @@
 - [Isolation](#isolation)
 - [Durability](#durability)
 - [Can NoSQL Databases be ACID-compliant?](#can-nosql-databases-be-acid-compliant)
+- [References](#references)
 
 ---
 
@@ -48,6 +49,12 @@ After a transaction is committed, it persists even if the system experiences a c
 
 # Can NoSQL Databases be ACID-compliant?
 
-Some NoSQL databases have implemented features to ensure partial ACID compliance. One example is [mongoDB](https://www.mongodb.com/basics/acid-transactions), which has support for [multi-document ACID transactions](https://www.mongodb.com/blog/post/mongodb-multi-document-acid-transactions-general-availability). Another example is [DynamoDB](https://github.com/camponogaraviera/full-stack-roadmap/blob/dev/system_design_and_infrastructure/database/06_technologies/DynamoDB.md), with the newly added support for [transactions](https://aws.amazon.com/blogs/aws/new-amazon-dynamodb-transactions/) that has enabled ACID properties to be enforced by the application.
+Some NoSQL databases have implemented features to ensure partial ACID compliance. One example is [MongoDB](https://www.mongodb.com/basics/acid-transactions), which has support for [multi-document ACID transactions](https://www.mongodb.com/blog/post/mongodb-multi-document-acid-transactions-general-availability). Another example is [DynamoDB](../technologies/dynamodb.md), with the newly added support for [transactions](https://aws.amazon.com/blogs/aws/new-amazon-dynamodb-transactions/) that has enabled ACID properties to be enforced by the application.
 
 Without Transactions, DynamoDB is BASE-compliant.
+
+---
+
+# References
+
+[1] https://aws.amazon.com/compare/the-difference-between-acid-and-base-database/

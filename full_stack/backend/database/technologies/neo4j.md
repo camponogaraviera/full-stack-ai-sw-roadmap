@@ -13,7 +13,7 @@
 
 # About
 
-Neo4j is a graph-based database that can optimize complex queries by storing resources (data) using vertices V (nodes), edges E, and their relationships in a graph-like data structure. It is based on the Graph DBMS model. Query search can be implemented with BFS, DFS, or Dijkstra. Neo4j uses Cypher as its graph query language. Neo4j is ACID-compliant.
+[Neo4j](https://github.com/neo4j/neo4j) is a graph-based database that can optimize complex queries by storing resources (data) using vertices V (nodes), edges E, and their relationships in a graph-like data structure. It is based on the Graph DBMS model. Query search can be implemented with BFS, DFS, or Dijkstra. Neo4j uses Cypher as its graph query language. Neo4j is ACID-compliant.
 
 ---
 

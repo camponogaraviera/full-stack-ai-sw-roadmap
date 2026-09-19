@@ -3,7 +3,7 @@
     <h2> DevOps Model </h2>
 </div>
 
-# DevOps Model
+# About
 
 This model integrates development (Dev) and operations (Ops) to automate processes and shorten the software delivery lifecycle. It emphasizes continuous integration (CI), continuous delivery (CD), and automation to ensure rapid deployment.
 

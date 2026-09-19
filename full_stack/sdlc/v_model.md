@@ -3,7 +3,7 @@
     <h2> Validation and Verification Model (V-Model) </h2>
 </div>
 
-# Validation and Verification Model (V-Model)
+# About
 
 This model is an extension of the Waterfall model that emphasizes the parallel relationship between development phases and corresponding testing phases. For every development phase (e.g., requirements specification), there is a corresponding testing phase (e.g., user acceptance testing).
 

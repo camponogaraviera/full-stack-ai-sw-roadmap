@@ -9,12 +9,11 @@
 - [Pros and Cons](#pros-and-cons)
 - [Data formats](#data-formats)
 - [Paradigms](#paradigms)
-  - [Key-Value Pairs]()
-  - [Wide Columns]()
-  - [Document Stores]()
-  - [Graph Stores]()
-  - [In-memory]()
-- [Best practices](#best-practices)
+  - Key-Value Pairs
+  - Wide Columns
+  - Document Stores
+  - Graph Stores
+  - In-memory
 - [Queries](#queries)
 - [ACID or BASE-compliant](#acid-or-base-compliant)
 - [Key Takeaways](#key-takeaways)
@@ -23,7 +22,7 @@
 
 # About
 
-Non-relational databases are useful for storing non-relational, unstructured data, i.e., with a flexible schema (that can be changed on the fly). Non-relational databases can either prioritize `Availability` and `Partition-Tolerance` (e.g., Cassandra, DynamoDB), or `Consistency` and `Partition-Tolerance` (e.g., MongoDB).
+Non-relational databases are useful for storing unstructured data with a flexible schema (that can be changed on the fly). Non-relational databases can either prioritize `Availability` and `Partition-Tolerance` (e.g., Cassandra, DynamoDB), or `Consistency` and `Partition-Tolerance` (e.g., MongoDB).
 
 By design, most NoSQL databases **do not support SQL-style JOIN operations** as a primary query mechanism, since JOINs can become performance bottlenecks at scale when related data reside on different shards, requiring additional network communication during query execution. NoSQL databases favor denormalization, data locality, and access patterns over dynamically joining normalized datasets. An exception worth naming is MongoDB's $lookup aggregation stage, which provides join-like capability.
 
@@ -62,12 +61,12 @@ Non-relational data can be stored in 5 different ways:
 
 - [Key-Value Pairs](https://aws.amazon.com/nosql/key-value/): data is stored in key-value pairs. Ideal for scenarios where fast access (read-heavy operations) to data is crucial.
   - **Technologies:** `DynamoDB`, `CouchBase`, `Redis`, and `Memcached`.
-  - **Use cases:** for session management, e-commerce main database, social media storage (user, reactions, comments, photos, etc), caching layer to reduce data latency, etc.
+  - **Use cases:** Session management, e-commerce main database, social media storage (user, reactions, comments, photos, etc.), caching layer to reduce data latency, etc.
   - **Data Structures used:** `Log-Structured Merge (LSM) Trees`, `Hash Tables`, `QuickList`, and `Skip Lists`.
 
 - [Wide-columns](https://www.scylladb.com/glossary/wide-column-database/): optimized for write-heavy workloads of columns, but low-read. Easy to scale and replicate data across nodes.
   - **Technologies:** `Apache Cassandra`, `ScyllaDB`, `Apache HBase`, `Google Bigtable`, and `Microsoft Azure Cosmos DB`.
-  - **Use cases:** to store time-series data such as sensor readings, records, history, etc.
+  - **Use cases:** To store time-series data such as sensor readings, records, history, etc.
   - **Data Structures used:** `Log-Structured Merge (LSM) Trees`, `Bloom Filters`, and `B-Trees`.
 
 - [Document Stores](https://aws.amazon.com/nosql/document/): data is stored in JSON-like documents, where each document is a container of key-value pairs, often organized as nested objects (Hash Tables).
@@ -83,14 +82,7 @@ Non-relational data can be stored in 5 different ways:
 - [In-memory key-value stores](https://aws.amazon.com/nosql/in-memory/): offers fast read and write operations by keeping data in RAM.
   - **Technologies:** `Redis`, `Memcached`, and `Amazon ElastiCache`.
   - **Use cases:** for caching frequently accessed data such as gaming leaderboards, session stores, activity feeds, and real-time data analytics.
-  - **Data Structures used:** `Hash Tables`, `QuickList` (a Doubly Linked List where each node contains a small Ziplist), and `Skip Lists` (used to implement sorted sets a.k.a zsets).
-
----
-
-# Best practices
-
-- Apply [data denormalization](https://github.com/camponogaraviera/full-stack-roadmap/blob/dev/database/05_norm_denorm.md) to store more than one entity in a single table, avoiding JOIN operations. For example, `users`, `reactions`, and `photos` can all be stored in a single DynamoDB table.
-- Reuse secondary indexes across data types (index overloading).
+  - **Data Structures used:** `Hash Tables`, `QuickList` (a Doubly Linked List where each node contains a small Ziplist), and `Skip Lists` (used to implement sorted sets a.k.a. zsets).
 
 ---
 

@@ -3,6 +3,6 @@
     <h2> Incremental Model </h2>
 </div>
 
-# Incremental Model
+# About
 
 Incremental work delivers separate, largely non-overlapping pieces progressively.

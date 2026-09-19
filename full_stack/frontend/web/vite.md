@@ -13,7 +13,7 @@
 
 # About
 
-Vite has no opinion about your backend. It doesn't ship API routes, server-side rendering, or a data layer by default. Because of that, Express + Vite is a very common and well-supported pattern.
+[Vite](https://vite.dev/guide/) has no opinion about your backend. It doesn't ship API routes, server-side rendering, or a data layer by default. Because of that, Express + Vite is a common and well-supported pattern.
 
 ---
 

@@ -8,6 +8,7 @@
 - [Introduction](#introduction)
 - [Facebook's Thundering Herd Issue](#facebooks-thundering-herd-issue)
 - [Mitigations](#mitigations)
+- [References](#references)
 
 ---
 

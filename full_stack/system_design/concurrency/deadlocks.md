@@ -7,6 +7,7 @@
 
 - [Introduction](#introduction)
 - [Mitigations](#mitigations)
+- [References](#references)
 
 ---
 
@@ -22,15 +23,13 @@ The following techniques can be used to minimize/prevent deadlocks:
 
 - **Consistent lock ordering:** Concurrent transactions should access objects in the same order. For example, one transaction is blocked on table A until the transaction on table B is completed.
 
-- **Keep transactions short, and in one batch:** The longer the transaction, the longer locks are held. Keep transactions short to minimize network round trips.
+- **Keep transactions short:** The longer the transaction, the longer locks are held. Keep transactions short to minimize network round trips.
 
 - **Avoid unnecessarily high isolation levels:** Avoid `REPEATABLE READ` and `SERIALIZABLE` when not required.
 
 - **Use row versioning-based isolation:** Can minimize deadlocks between read and write operations.
 
 - **Use bound connections:** Two or more connections can cooperate without blocking.
-
-- **Timeout-based detection:** Abort or roll back a transaction if it waits for a resource longer than a configured threshold.
 
 - **Wait-for graph:** Track which processes or transactions are waiting for resources held by others using an internal directed graph representation, and detect cycles that indicate a deadlock.
 

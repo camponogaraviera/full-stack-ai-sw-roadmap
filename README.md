@@ -132,8 +132,8 @@ Implementations follow official documentation, and references are provided throu
     - [Modern C++](https://github.com/camponogaraviera/ds-and-algo-cpp/blob/main/ds_and_algo_cpp/implementations/README.md)
   - [Interview Questions](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/interview_prep/questions/README.md) 
   - LeetCode Problems
-    - [Python](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/implementations/python/README.md)
-    - [Modern JavaScript (ES6+)](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/implementations/javascript/README.md)
+    - [Python](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/interview_prep/leetcode/python/README.md)
+    - [Modern JavaScript (ES6+)](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/interview_prep/leetcode/javascript/README.md)
     - [Modern C++](https://github.com/camponogaraviera/ds-and-algo-cpp/blob/main/ds_and_algo_cpp/interview_prep/leetcode/README.md)
   
   </details>
@@ -241,7 +241,7 @@ Implementations follow official documentation, and references are provided throu
   - [Partitioning](full_stack/backend/database/core/partitioning.md)
 
 - Indexing & Query Optimization
-  - [Query optimization with Indexing](full_stack/backend/database/core/query_optimization.md)
+  - [Query Optimization with Indexing](full_stack/backend/database/core/query_optimization.md)
   - [Geo-spatial Indexes](full_stack/backend/database/core/geo_spatial_indexes.md)
     - Geohashing
     - Quadtrees

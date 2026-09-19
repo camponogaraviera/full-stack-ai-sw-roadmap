@@ -3,6 +3,6 @@
     <h2> Iterative Model </h2>
 </div>
 
-# Iterative Model
+# About
 
 This model develops a system through repeated cycles (iterations). Iterative work revisits and refines the same parts of the product repeatedly.

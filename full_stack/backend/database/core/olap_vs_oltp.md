@@ -3,6 +3,13 @@
     <h2> OLAP vs OLTP </h2>
 </div>
 
+# Table of Contents
+
+- [About](#about)
+- [OLAP](#olap)
+- [OLTP](#oltp)
+- [References](#references)
+
 ---
 
 # About
@@ -13,16 +20,34 @@
 
 # OLAP
 
-Is a database management system used to perform analytical operations: Data aggregation from multiple sources, complex filtering, and statistical analysis. Also used to analyze data collected by OLTP. In a retail system, it can be used to generate reports on sales trends, inventory levels, customer demographics, and other key metrics so that businesses can make better decisions.
+Online Analytical Processing (OLAP) is a database management system used to perform analytical operations on aggregated data, possibly from multiple sources. 
 
-- Uses multidimensional (cubes) or RDBMS databases. Uses star schema (denormalized), snowflake schema (normalized), or other analytical models.
+- Database: Uses multidimensional (cubes) or relational databases.
+- Data model: Uses star schema (denormalized), snowflake schema (normalized), or other analytical models.
+- Queries: Complex, involving many database records.
+- Response time: Slower than OLTP.
+- Use cases: In a retail system, OLAP can be used to analyze trends, predict customer behavior, and other key metrics that drive business decisions.
 - Technologies: [Amazon Redshift](https://aws.amazon.com/redshift/).
 
 ---
 
 # OLTP
 
-Is a database management system used to process database transactions in real time. OLTP ensures data integrity through ACID compliance. It can be used with either RDBMS or NoSQL database technologies with a normalized or denormalized schema. Use cases: checkouts, searches, manage bookings, social media posts, and retail system.
+Online Transaction Processing (OLTP) is a database management system used to process database transactions in real time. OLTP ensures [data integrity](https://aws.amazon.com/what-is/data-integrity/) through [ACID](./acid.md) compliance.
 
+- Database: Primarily uses relational databases, though modern systems use OLTP with non-relational (NoSQL) databases.
+- Data model: Uses normalized or denormalized models.
+- Queries: Simple, involving one or a few database records.
+- Response time: Faster than OLAP.
+- Use cases: ATMs, credit card payments, online booking, customer orders, and customer data.
 - Technologies: AWS Aurora (RDBMS), AWS DynamoDB (NoSQL), MongoDB (NoSQL), and Cassandra (NoSQL).
-- In a retail system, OLTP handles tasks such as processing customer orders, updating inventory levels, and managing customer accounts.
+
+---
+
+# References
+
+[1] https://aws.amazon.com/compare/the-difference-between-olap-and-oltp
+
+[2] https://aws.amazon.com/what-is/data-integrity
+
+[3] https://www.ibm.com/think/topics/oltp

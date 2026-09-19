@@ -3,7 +3,7 @@
     <h2> Agile Model </h2>
 </div>
 
-# Agile Model
+# About
 
 This model breaks the project into small, manageable chunks called sprints or iterations, each delivering a functional product increment.
 

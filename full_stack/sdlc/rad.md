@@ -3,7 +3,7 @@
     <h2> Rapid Application Development (RAD) Model </h2>
 </div>
 
-# Rapid Application Development (RAD) Model
+# About
 
 This model prioritizes rapid prototyping and iterating on feedback.
 

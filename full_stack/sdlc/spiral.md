@@ -3,6 +3,6 @@
     <h2> Spiral Model </h2>
 </div>
 
-# Spiral Model
+# About
 
-Spiral mode is `iterative development` + `Waterfall-like structured phases` + explicit, repeated risk analysis at each cycle.
+The Spiral Model is a combination of `iterative development` + `Waterfall-like structured phases` + explicit, repeated risk analysis at each cycle.

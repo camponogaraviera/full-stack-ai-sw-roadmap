@@ -7,23 +7,30 @@
 
 - [Data Lakes](#data-lakes)
 - [Data Warehouses](#data-warehouses)
+- [References](#references)
 
 ---
 
 # Data Lakes
 
-Data lakes are used to store raw data from a wide range of sources.
+Data lakes [1] are used to store raw data from a wide range of sources.
 
 - Data Types: Structured, unstructured, semi-structured, relational, and non-relational data.
-
 - Data Lakes use a `schema-on-read` approach, meaning that the data schema is defined only when the data is read or queried.
 
 ---
 
 # Data Warehouses
 
-Data warehouses generally require data to be pre-processed, cleaned, and structured before being stored. This means data must often be transformed into a structured format suitable for analytics, making data warehouses less flexible in the types of data they store.
+Data warehouses [2] are optimized for data analysis that can drive business decisions, where structured and reliable data is essential for generating insights.
 
-- Use Cases: They are optimized for analytics, operational reporting, and business intelligence (BI) use cases, where structured and reliable data is essential for generating insights.
+- Data Types: Structured data, typically organized into tables and columns. A data warehouse may contain multiple databases.
+- Data Warehouses use a `schema-on-write` approach, meaning that incoming data must conform to a pre-defined structure or schema before it can be stored.
 
-- Data Warehouses use a `schema-on-write` approach, meaning that data must conform to a defined schema before it is written into the warehouse.
+---
+
+# References
+
+[1] https://aws.amazon.com/what-is/data-lake/
+
+[2] https://aws.amazon.com/what-is/data-warehouse/

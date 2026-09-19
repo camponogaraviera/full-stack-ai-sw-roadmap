@@ -21,6 +21,7 @@
 - [Database Replication](#database-replication)
   - [Multi-master Replication](#multi-master-replication)
   - [Bidirectional and Circular Replication](#bidirectional-and-circular-replication)
+- [References](#references)
 
 ---
 
@@ -36,11 +37,10 @@ Having stateless servers greatly simplifies the process of horizontal scaling be
 
 # Sharding
 
-Sharding is a form of horizontal scaling where data is split across multiple servers and independent database instances.
+Sharding is a form of horizontal partitioning where data is split across multiple servers and independent database instances while maintaining the same database schema.
 
-- Pros: A distributed system enables the database to handle larger datasets and increased traffic.
-
-- Cons: Queries and joins are expensive across shards.
+- Pros: Reduces [contention](./concurrency/contention.md) and enables the database to handle larger datasets and increased traffic.
+- Cons: Queries require JOIN-like operations that are expensive across shards.
 
 ---
 
@@ -107,3 +107,9 @@ When a master goes down, a slave database is ready to take its place.
 ## Multi-master Replication
 
 ## Bidirectional and Circular Replication
+
+---
+
+# References
+
+[1] https://learn.microsoft.com/en-us/azure/well-architected/design-guides/partition-data

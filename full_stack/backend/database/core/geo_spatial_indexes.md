@@ -68,6 +68,6 @@ They can be classified into:
 - QuadTrees:
   - Used for spatial partitioning, terrain representation, and multi-resolution image storage in applications such as GIS, mapping, and computer graphics.
 
-Note1: Both Geohash and QuadTree support efficient route calculations (e.g., road networks), but graph-based data structures are more common for pathfinding using [Dijkstra's](https://github.com/camponogaraviera/ds-and-algo/blob/dev/theory/algorithms/06_shortest_path/2_dijkstra.md) or [A\*](https://github.com/camponogaraviera/ds-and-algo/blob/dev/theory/algorithms/06_shortest_path/1_aStar.md) algorithms.
+Note1: Both Geohash and QuadTree support efficient route calculations (e.g., road networks), but graph-based data structures are more common for pathfinding using [Dijkstra's](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/theory/algorithms/shortest_path/dijkstra.md) or [A\*](https://github.com/camponogaraviera/ds-and-algo/blob/main/ds_and_algo/theory/algorithms/shortest_path/a_star.md) algorithms.
 
 Note2: ["A range query is a common database operation that retrieves all records where some value is between an upper and lower boundary."](<https://en.wikipedia.org/wiki/Range_query_(database)>)

@@ -7,6 +7,7 @@
 
 - [Introduction](#introduction)
 - [Mitigations](#mitigations)
+- [References](#references)
 
 ---
 
@@ -24,7 +25,7 @@ Examples:
 
 3. Multiple transactions are trying to update the same row in a table, leading to deadlocks or lock waits (when one transaction holds a lock on a resource).
 
-Obs: In locking and serialization, locks themselves can cause contention, particularly in write-heavy workloads.
+Note: Locks themselves can cause contention, particularly in write-heavy workloads.
 
 ---
 
@@ -32,22 +33,12 @@ Obs: In locking and serialization, locks themselves can cause contention, partic
 
 To mitigate the consequences of database contention, the following strategies can be implemented:
 
-1. `Multiversion Concurrency Control (MVCC)`: Modern databases often use MVCC, allowing multiple reads and writes to occur simultaneously without blocking each other.
+1. [Multiversion Concurrency Control (MVCC)](https://cloudberry.apache.org/docs/tutorials/product-principles/about-mvcc/): Modern databases often use MVCC, allowing multiple reads and writes to occur simultaneously without blocking each other. MVCC reduces read-write contention by operating on independent versions of the same record, instead of overwriting the existing record in place.
 
-- Benefits:
-  - MVCC reduces read-write contention by keeping historical versions of rows for read operations.
-
-- Drawbacks:
-  - `MVCC` reduces read contention but does not fully eliminate write-write conflicts.
-
-2. `Database Denormalization`:
-
-- Benefits:
-  - Helps mitigate contention in read-heavy workloads, such as OLAP queries or analytics workloads.
-
-- Drawbacks:
-  - May increase write contention if multiple transactions update the same duplicated data.
+2. [Database Denormalization](../../backend/database/core/norm_denorm.md): Helps mitigate contention in read-heavy workloads. May increase write contention when multiple concurrent operations attempt to update duplicated items that reside within the same database partition.
 
 ---
 
 # References
+
+[1] https://cloudberry.apache.org/docs/tutorials/product-principles/about-mvcc/

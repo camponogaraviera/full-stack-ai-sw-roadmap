@@ -3,8 +3,8 @@
     <h2> Waterfall Model </h2>
 </div>
 
-# Waterfall Model
+# About
 
 This model is a sequential/linear SDLC approach where each phase must be completed before the next begins.
 
-Phases: Requirement Analysis, System Design, Implementation, Integration and Testing, Deployment, and Maintenance.
+Phases: Analysis, System Design, Implementation, Integration and Testing, Deployment, and Maintenance.

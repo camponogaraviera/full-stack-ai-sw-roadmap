@@ -20,5 +20,5 @@ Query optimization with indexing means improving the performance of database que
 
 - Drawbacks:
   - Adds overhead to write operations (INSERT, UPDATE, DELETE) due to index maintenance.
-  - May introduce [database contention](./contention.md) or fragmentation in high-write scenarios.
+  - May introduce [database contention](../../../system_design/concurrency/contention.md) or fragmentation in high-write scenarios.
   - Increases storage usage.
