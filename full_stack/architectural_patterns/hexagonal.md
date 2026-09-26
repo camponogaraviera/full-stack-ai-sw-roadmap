@@ -22,9 +22,9 @@ This architecture isolates the application's business logic (domain logic) from 
   - **Primary Ports:** Define the operations through which external actors drive the application. Examples include: creating a user or placing an order.
   - **Secondary Ports:** Define the interactions/capabilities through which the application communicates with external systems. Examples include: retrieving or persisting data, sending an email notification, or accessing a file system.
     
-- `Adapters (implementations)`: Connect external systems to the application's ports. They are the concrete, technology-specific implementation that sits outside the core and translates external signals (e.g., user button clicks or web form submission) into calls that the application's port understands.
-  - **Primary/Driving Adapters (Input):** Translate external requests into calls to application use cases. Examples include: The user interface (UI), an HTTP adapter, a test harness adapter, and a program-to-program adapter.
-  - **Secondary/Driven Adapters (Output):** Translate application operations into infrastructure-specific operations. Examples include: A SQL database access adapter, an email adapter, or a flat file adapter.
+- `Adapters (implementations)`: Connect external systems to the application's ports. They are the concrete, technology-specific implementation that sits outside the core and translates external signals into calls that the application's port understands.
+  - **Primary/Driving Adapters (Input):** Translate external requests into calls to application use cases. Examples include: User interface (UI) adapter, HTTP adapter, test harness adapter, and program-to-program adapter.
+  - **Secondary/Driven Adapters (Output):** Translate application operations into infrastructure-specific operations. Examples include: SQL database access adapter, email adapter, and flat file adapter.
 
 ---
 
