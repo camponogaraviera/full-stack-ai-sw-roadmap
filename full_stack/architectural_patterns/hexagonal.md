@@ -16,7 +16,7 @@ Hexagonal (a.k.a. Ports and Adapters) Architecture is an architectural style/pat
 
 This architecture isolates the application's business logic (domain logic) from infrastructure code that interacts with external technologies (e.g., databases, APIs, etc.). The application communicates with the outside world (external agencies) through interfaces called Ports, while Adapters (implementations) translate the exchange. The system's interfaces are therefore designed according to purpose, while external technologies are represented by interchangeable adapters [1]. This facilitates replacing external technologies with limited impact to business logic.
 
-- `The Application Core`: The core of the application containing use cases and [business logic (domain logic)](https://en.wikipedia.org/wiki/Business_logic).
+- `The Application Core`: The core of the application containing use cases (application logic), [business logic (domain logic)](https://en.wikipedia.org/wiki/Business_logic), and ports (interfaces).
   
 - `Ports (interfaces)`: A port identifies a purposeful conversation/interface between the application and an external agency [1]. In other words, is an abstraction or contract defined by the application core that specifies what operations the application expose or require from external systems (e.g., an incoming use-case or driving API). There can be multiple adapters to one port [1].
   - **Primary Ports:** Define the operations through which external actors drive the application. Examples include: creating a user or placing an order.
