@@ -58,8 +58,8 @@ Implementations follow official documentation, and references are provided throu
   - 3.6 AWS Roadmap + Technical Interview
 
 - [4. AI Roadmap](#ai) (Theory and Implementation)
-  - 4.1 Deep Learning Roadmap + Technical Interview
-  - 4.2 TensorFlow & PyTorch: API Tutorial
+  - 4.1 TensorFlow & PyTorch: API Tutorial
+  - 4.2 Deep Learning Roadmap + Technical Interview
   - 4.3 Reinforcement Learning Roadmap: Theory and Implementations of Deep Reinforcement Learning Algorithms in TensorFlow and PyTorch
   - 4.4 Large Language Model Roadmap: End-to-end Large Language Models in PyTorch + Technical Interview
 
@@ -243,7 +243,7 @@ Implementations follow official documentation, and references are provided throu
     - Horizontal Partitioning a.k.a. Sharding
 
 - Indexing & Query Optimization
-  - [Query Optimization with Indexing](full_stack/backend/database/fundamentals/query_optimization.md)
+  - [](full_stack/backend/database/fundamentals/query_optimization.md)
   - [Geospatial Indexes](full_stack/backend/database/fundamentals/geo_spatial_indexes.md)
     - Introduction
     - Geohashes
@@ -268,7 +268,7 @@ Implementations follow official documentation, and references are provided throu
   - Real-Time Peer-to-Peer (P2P) Communication
     - [WebRTC](full_stack/backend/api/communication/webrtc.md)
 
-- API Architectural Styles 
+- API Architectural Styles
   - [RESTful APIs](full_stack/backend/api/arch_styles/restfull_api.md)
 
 - API Query Languages

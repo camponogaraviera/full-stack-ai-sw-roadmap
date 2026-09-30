@@ -33,7 +33,9 @@ To mitigate the consequences of database contention, the following strategies ca
 
 1. [Multiversion Concurrency Control (MVCC)](https://cloudberry.apache.org/docs/tutorials/product-principles/about-mvcc/): Modern databases often use MVCC, allowing multiple reads and writes to occur simultaneously without blocking each other. MVCC reduces read-write contention by operating on independent versions of the same record, instead of overwriting the existing record in place.
 
-2. [Database Denormalization](../../backend/database/fundamentals/norm_denorm.md): Helps mitigate contention in read-heavy workloads. May increase write contention when multiple concurrent operations attempt to update duplicated items that reside within the same database partition.
+2. Queuing System: Can mitigate read and write contention. A pool of consumers (workers) processes tasks from a dedicated queue with controlled concurrency (in parallel) or batching. One should avoid using a database as a message queue. Prefer dedicated systems (e.g., Amazon SQS). Amazon SQS provides both [standard queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.html) and [FIFO queues](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-fifo-queues.html).
+
+3. [Database Denormalization](../../backend/database/fundamentals/norm_denorm.md): Helps mitigate read contention in read-heavy workloads because the absence of table joins means faster queries and fewer locks. However, it may increase write contention when multiple concurrent operations attempt to update duplicated items that reside within the same database partition.
 
 ---
 
