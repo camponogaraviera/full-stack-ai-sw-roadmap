@@ -61,7 +61,7 @@ The system should:
 - Scale with increasing user base.
 - Use a database that prioritizes availability and partition tolerance (AP system) over strong consistency.
 - Be available and fault-tolerant (without losing uploads).
-- Handle light throughput (~10k RPS).
+- Handle low throughput (~60 RPS on average, with spikes around meal times).
 - Have fast loading times and minimal latency.
 
 ---
@@ -72,15 +72,15 @@ The system should:
 
 - A normalized database design with `PostgreSQL` can be a starting point for an average-sized app. This avoids complex update operations in a denormalized database.
 - As Access Patterns require more complex join operations and performance bottlenecks emerge, a NoSQL database can be a viable alternative for scalability.
-- Scalability requires a horizontally partitioned distributed database to store restaurant metadata. According to the CAP theorem, prioritizing [availability and partition tolerance](https://github.com/camponogaraviera/full-stack-ai-sw-roadmap/blob/main/backend/database/core/cap_theorem.md) implies that `Cassandra`, `CouchDB`, or [DynamoDB](https://github.com/camponogaraviera/full-stack-roadmap/blob/main/backend/database/technologies/dynamodb.md) can be used.
+- Scalability requires a horizontally partitioned distributed database to store restaurant metadata. According to the CAP theorem, prioritizing [availability and partition tolerance](../full_stack/backend/database/fundamentals/cap_theorem.md) implies that `Cassandra`, `CouchDB`, or [DynamoDB](../full_stack/backend/database/technologies/dynamodb.md) can be used.
 - NoSQL databases are designed for `horizontal scalability at the database level (sharding)` while having the advantage of avoiding JOIN operations at the cost of redundancy.
-- Implement database sharding to split table rows across multiple shards (nodes, servers), improving query performance, scalability, and fault tolerance. [Sharding](https://github.com/camponogaraviera/full-stack-ai-sw-roadmap/blob/main/system_design/horizontal_scaling.md) can be achieved using a shard key.
+- Implement database sharding to split table rows across multiple shards (nodes, servers), improving query performance, scalability, and fault tolerance. [Sharding](../full_stack/system_design/horizontal_scaling.md) can be achieved using a shard key.
 
 2. `Availability`:
 
-- Configured AWS S3 for storing static assets (images/binary blobs, JS, CSS), leveraging automatic scaling to handle peak traffic and multi-AZ replication to ensure availability.
+- Configure Amazon S3 for storing static assets (images/binary blobs, JS, CSS), leveraging automatic scaling to handle peak traffic and multi-AZ replication to ensure availability.
 
-- Use **DynamoDB in on-demand mode** (auto-scaling), instead of provisioned mode, to automatically adjust read and write capacity units based on traffic, preventing [Throttling](https://github.com/camponogaraviera/full-stack-ai-sw-roadmap/blob/main/system_design/celebrity.md).
+- Use **DynamoDB in on-demand mode** (auto-scaling), instead of provisioned mode, to automatically adjust read and write capacity units based on traffic, preventing [Throttling](../full_stack/system_design/celebrity.md).
 
 - Configure a dedicated compute instance to handle peak traffic.
 
@@ -111,14 +111,14 @@ The system should:
 1. `Frontend`:
 
 - The UI can be implemented with React.js (web), React Native (mobile), or Lynx.
-- The frontend (static part) can be hosted with built-in SSL/TLS certificate support via [AWS Amplify](https://github.com/camponogaraviera/aws/blob/main/services/hosting/hosting.md#aws-amplify).
+- The frontend (static part) can be hosted with built-in SSL/TLS certificate support via [AWS Amplify](https://aws.amazon.com/amplify/).
 
 2. `Backend API for Communication`:
 
-- The API for client-server communication can be a [RESTful API](https://github.com/camponogaraviera/full-stack-roadmap/blob/main/backend/api/restfull_api.md) implemented serverless with [Amazon API Gateway HTTP](https://aws.amazon.com/api-gateway/) + [AWS Lambda](https://aws.amazon.com/lambda/).
+- The API for client-server communication can be a [RESTful API](../full_stack/backend/api/arch_styles/restfull_api.md) implemented serverless with [Amazon API Gateway HTTP](https://aws.amazon.com/api-gateway/) + [AWS Lambda](https://aws.amazon.com/lambda/).
   - API Gateway (29-sec timeout) provides a single entry point for clients to interact with various backend services, handling HTTP geo-routing, authentication (Cognito/IAM), throttling, caching, and WebSockets.
   - Lambda executes API logic. It is suitable for short-lived, event-driven applications within Lambda's constraints (15-minute timeout, max [10GB RAM, and 6 vCPU cores](https://aws.amazon.com/about-aws/whats-new/2021/07/aws-lambda-supports-10-gb-memory-6-vcpu-cores-bahrain-osaka-hong-kong-regions/)). **CRUD operations should be implemented directly on Lambda**.
-- As fetching becomes complex and performance bottlenecks emerge, a [GraphQL API](https://github.com/camponogaraviera/full-stack-roadmap/blob/main/backend/api/grahql.md), implemented with [AppSync](https://aws.amazon.com/appsync/)+[Amplify](https://aws.amazon.com/amplify/) or [graphql-http](https://graphql.org/blog/2022-11-07-graphql-http/), can be a viable alternative.
+- As fetching becomes complex and performance bottlenecks emerge, a [GraphQL API](../full_stack/backend/api/query_langs/graphql.md), implemented with [AppSync](https://aws.amazon.com/appsync/)+[Amplify](https://aws.amazon.com/amplify/) or [graphql-http](https://graphql.org/blog/2022-11-07-graphql-http/), can be a viable alternative.
 
 3. `Security`: User authentication (sign-up, sign-in) and authorization can be implemented with [Amazon Cognito](https://aws.amazon.com/pm/cognito/) and [AWS IAM](https://aws.amazon.com/iam/), respectively. Cognito automatically handles the storage of user credentials (e.g., passwords, tokens) and metadata (e.g., email, phone number, username) inside **Cognito User Pools**.
 
@@ -132,13 +132,13 @@ The system should:
 
 8. `CDN`: Used to speed up `content delivery`. The CDN takes static data from [Amazon S3 Storage](https://aws.amazon.com/s3/). Technologies: [Amazon CloudFront](https://aws.amazon.com/cloudfront/).
 
-9. `Caching`: [Amazon Elasticache](https://aws.amazon.com/pm/elasticache/) (general-purpose), or [Amazon DAX](https://aws.amazon.com/dynamodb/dax/) (purpose-built for DynamoDB). This caching solution stays in the AWS cloud.
+9. `Caching`: [Amazon ElastiCache](https://aws.amazon.com/pm/elasticache/) (general-purpose), or [Amazon DAX](https://aws.amazon.com/dynamodb/dax/) (purpose-built for DynamoDB). This caching solution stays in the AWS cloud.
 
 10. `Payments:` Payment transactions can be processed with `Stripe` or `PayPal`.
 
 11. `Message Queuing:` [Amazon SQS](https://aws.amazon.com/sqs/) can be used to allow asynchronous communication between microservices, such as reservation requests, payment processing, and notification dispatching.
 
-12. `Email Confirmation:` After a reservation is successfully created, an email confirmation template with relevant reservation details can be triggered via an [AWS Lambda function](https://aws.amazon.com/lambda/). Customers and restaurant owners can then receive the email from an SMTP server (e.g., using `Nodemailer`) or through an email service provider's API (e.g., [Amazon SES API](https://docs.aws.amazon.com/ses/latest/dg/send-email-api.html) or [SendGrid](https://sendgrid.com/en-us).
+12. `Email Confirmation:` After a reservation is successfully created, an email confirmation template with relevant reservation details can be triggered via an [AWS Lambda function](https://aws.amazon.com/lambda/). Customers and restaurant owners can then receive the email from an SMTP server (e.g., using `Nodemailer`) or through an email service provider's API (e.g., [Amazon SES API](https://docs.aws.amazon.com/ses/latest/dg/send-email-api.html) or [SendGrid](https://sendgrid.com/en-us)).
 
 13. `Push Notification:` [Amazon SNS](https://aws.amazon.com/sns/) can be used to notify users about booking confirmations via SMS or notify services about state changes (e.g., a reservation update).
 
@@ -152,7 +152,7 @@ The system should:
 
 ## Traffic
 
-Suppose the system has 500k DAUs, and each user makes 10 requests for a particular location per day, on average.
+Suppose the system has 500k DAUs, and each user makes 10 read requests for a particular location per day, on average.
 
 - Search requests per day:
 
@@ -171,7 +171,7 @@ $$
 Suppose that 10% of DAU are restaurant owners sharing 5 photos of 1MB per day (0.005GB/user), on average.
 
 - Daily storage usage for 50k DAU = 50k users \* 0.005GB/user = 250 GB/day.
-- Monthly storage usage = 250 GB/day \* 30 days = 7,5 TB/month.
+- Monthly storage usage = 250 GB/day \* 30 days = 7.5 TB/month.
 
 ## Bandwidth
 
@@ -187,33 +187,30 @@ $$
 
 1. A monolithic architecture with a single database can be a starting point for prototyping and product validation.
 
-2. As systems evolve into distributed microservices with database-per-service patterns, [microservices architecture with Saga pattern](https://github.com/camponogaraviera/full-stack-ai-sw-roadmap/blob/main/system_design/patterns.md) becomes a useful approach for isolation and data consistency. The SAGA workflow can be implemented serverless using `AWS API Gateway`, `AWS Step Functions`, `AWS Lambda`, and `Amazon DynamoDB`. Instead of deleting records, systems typically rely on state transitions and compensating actions to maintain consistency.
+2. As systems evolve into distributed microservices with database-per-service patterns, [microservices architecture with Saga pattern](../full_stack/system_design/patterns/saga.md) becomes a useful approach for isolation and data consistency. The SAGA workflow can be implemented serverless using `AWS API Gateway`, `AWS Step Functions`, `AWS Lambda`, and `Amazon DynamoDB`. Instead of deleting records, systems typically rely on state transitions and compensating actions to maintain consistency.
 
 ## AWS Step Functions
 
-In the workflow of a [database-per-service pattern](https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-data-persistence/database-per-service.html) (a single database for each microservice), using a DynamoDB table for Restaurants and another for Payments, the following [AWS Step Functions](https://aws.amazon.com/step-functions/) can be used for serverless Saga orchestration:
+In the workflow of a [database-per-service pattern](https://docs.aws.amazon.com/prescriptive-guidance/latest/modernization-data-persistence/database-per-service.html) (a single database for each microservice), using a DynamoDB table for Bookings and another for Payments, the following [AWS Step Functions](https://aws.amazon.com/step-functions/) can be used for serverless Saga orchestration:
 
-1. Book/reserve a restaurant: inserts a record into the DynamoDB Restaurants table with a `reservationStatus = pending`.
+1. Book/reserve a restaurant: insert a record into the DynamoDB Bookings table with a `reservationStatus = pending`.
 
 2. Process a payment:
+   - Call an external payment API and insert a record into the DynamoDB Payments table with a `paymentStatus = succeeded | failed`.
+   - If payment fails, update the reservation record status in the DynamoDB Bookings table to `reservationStatus = cancelled`.
+   - If payment is successful, `continue`.
 
-3. Call an external payment API and insert a record into the DynamoDB Payments table with a `paymentStatus = succeeded | failed`.
+3. Confirm a reservation: update the reservation record status to `reservationStatus = confirmed`.
 
-4. If payment fails, update the reservation record status in the DynamoDB Restaurants table to `reservationStatus = cancelled`.
-
-5. If payment is successful, `continue`.
-
-6. Confirm a reservation: update the reservation record status to `reservationStatus = confirmed`.
-
-7. If confirmation fails, refund the payment and update the reservation record status to `reservationStatus = cancelled`.
+4. If confirmation fails, refund the payment (`paymentStatus = refunded`) and update the reservation record status to `reservationStatus = cancelled`.
 
 ---
 
 # Double Booking and Database Contention
 
-Two customers competing for the same restaurant reservation slot is an example of [database contention](https://github.com/camponogaraviera/full-stack-ai-sw-roadmap/blob/main/backend/database/core/contention.md).
+Two customers competing for the same restaurant reservation slot is an example of [database contention](../full_stack/system_design/concurrency/contention.md).
 
-To prevent database contention, the following strategies can be implemented: `query optimization with indexing (for relational databases)`, `database denormalization`, and concurrency control via `Locking and serialization`.
+To prevent database contention, implement [MVCC](https://cloudberry.apache.org/docs/tutorials/product-principles/about-mvcc/), a [Queuing System](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/standard-queues.html), or [Database Denormalization](../full_stack/backend/database/fundamentals/norm_denorm.md) (mitigates reads, but not writes).
 
 ---
 
@@ -276,7 +273,7 @@ Within a monolithic architecture, it is common to have a single relational datab
    - partySize (int)
    - reservationLength (int)
    - dietaryRestrictions (varchar)
-   - paymentStatus (enum) - Pending/Confirmed/Cancelled
+   - reservationStatus (enum) - pending/confirmed/cancelled
 
 4. Payments Table:
    - Primary Key: paymentID (uuid)
@@ -284,7 +281,7 @@ Within a monolithic architecture, it is common to have a single relational datab
    - transactionID (uuid)
    - paymentMethod (enum) - Visa, Mastercard, PayPal, etc.
    - amount (float)
-   - paymentStatus (enum) - Completed/Denied
+   - paymentStatus (enum) - succeeded/failed/refunded
    - paymentDate (timestamp)
 
 5. Reviews Table:
@@ -294,6 +291,8 @@ Within a monolithic architecture, it is common to have a single relational datab
    - rating (int)
    - feedback (varchar)
    - reviewDate (timestamp)
+
+---
 
 # Denormalized Database Design
 
@@ -311,7 +310,7 @@ Access patterns are required to be known before modeling DynamoDB Tables. Recall
    - Partition Key (PK): `USER#username`
    - Sort key (SK): `USER#username`
    - Attributes: `username`, `email`, `name`, `role`, etc.
-   - Post: use `TransactWriteItems` to create an item with `PK` and `SK` both as `USER#username`.
+   - Post: use `TransactWriteItems` with two `Put` operations, each with the condition `attribute_not_exists(PK)`. One item with `PK` and `SK` both as `USER#username`, and one uniqueness marker item with `PK` and `SK` both as `EMAIL#email`. If either already exists, the whole transaction fails.
 2. Register a Restaurant (unique on ID):
    - Partition Key (PK): `REST#RestaurantID`
    - Sort key (SK): `REST#RestaurantID`
@@ -319,8 +318,8 @@ Access patterns are required to be known before modeling DynamoDB Tables. Recall
    - Post: use `PutItem` with `PK` and `SK` both as `REST#RestaurantID`.
 3. Book a Restaurant:
    - Partition Key (PK): `USER#username`
-   - Sort key (SK): `#BOOK#BookingID` (KSUID)
-   - Attributes: `restaurantID`, `reservationDate`, `reservationLength`, `partySize`, `dietaryRestrictions`, `paymentStatus`.
+   - Sort key (SK): `BOOK#BookingID` (KSUID)
+   - Attributes: `restaurantID`, `reservationDate`, `reservationLength`, `partySize`, `dietaryRestrictions`, `reservationStatus`.
    - Post: use `TransactWriteItems` with `PK` as `USER#username` and `SK` as `BOOK#BookingID`.
 4. Update a Booking:
    - Partition Key (PK): `USER#username`
@@ -329,7 +328,7 @@ Access patterns are required to be known before modeling DynamoDB Tables. Recall
 5. Fetch the most recent Bookings for a particular User:
    - Partition Key (PK): `USER#username`
    - Sort key (SK): `BOOK#BookingID`
-   - Attributes: `restaurantID`, `reservationDate`, `partySize`, `dietaryRestrictions`, `paymentStatus`.
+   - Attributes: `restaurantID`, `reservationDate`, `partySize`, `dietaryRestrictions`, `reservationStatus`.
    - Get: use `Query` with `ScanIndexForward=False`, `PK` as `USER#username` and a sort key condition starting with `BOOK#`.
 6. Fetch all Restaurants from a particular User:
    - Partition Key (PK): `USER#username`
@@ -364,6 +363,7 @@ Access patterns are required to be known before modeling DynamoDB Tables. Recall
     <td colspan="2"> Primary Key </td>
     <td colspan="6">Attributes</td>
   </tr>
+  <tr>
     <th>Partition Key: PK</th>
     <th>Sort Key: SK</th>
     <th>Attribute 1</th>
@@ -439,16 +439,16 @@ Access patterns are required to be known before modeling DynamoDB Tables. Recall
     <td> reservationLength </td>
     <td> partySize </td>
     <td> dietaryRestrictions </td>
-    <td> paymentStatus </td>
+    <td> reservationStatus </td>
   </tr>
   <tr>
-    <td>#BOOK#001</td>
+    <td>BOOK#001</td>
     <td>001</td>
     <td>2024-06-01T10:00:00Z</td>
     <td>"1 hour"</td>
     <td>"Table for 2"</td>
     <td> "Peanut Allergy" </td>
-    <td>"Pending"</td>
+    <td>"pending"</td>
   </tr>
   <tr>
     <td colspan="1">  </td>
@@ -521,7 +521,7 @@ Access patterns are required to be known before modeling DynamoDB Tables. Recall
     <td>PAY#001</td>
     <td>2024-06-01T10:00:00Z</td>
     <td>50</td>
-    <td>Completed</td>
+    <td>succeeded</td>
     <td>001</td>
     <td></td>
     <td></td>

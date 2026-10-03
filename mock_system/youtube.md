@@ -9,14 +9,14 @@
 - [Non-Functional Requirements](#non-functional-requirements)
 - [Infrastructure](#infrastructure)
 - [Services](#services)
+- [Architecture](#architecture)
 - [Estimations](#estimations)
   - [Traffic](#traffic)
   - [Storage](#storage)
   - [Bandwidth](#bandwidth)
-- [Architecture](#architecture)
-- [Entity Chart](#entity-chart)
 - [Normalized Database Design](#normalized-database-design)
   - [Entity-Relationship Diagram (ERD)](#entity-relationship-diagram-erd)
+  - [Entity Chart](#entity-chart)
   - [Single Relational Database Design](#single-relational-database-design)
 - [Denormalized Database Design](#denormalized-database-design)
   - [DynamoDB Access (Query) Patterns](#dynamodb-access-query-patterns)
@@ -42,7 +42,7 @@ The user should be able to:
 The system should:
 
 - Scale with increasing user base.
-- Use a database that prioritizes consistency and partition tolerance (CP system) over availability.
+- Use a database that prioritizes availability and partition tolerance (AP system) over strong consistency (video metadata, view counts, and comments tolerate eventual consistency).
 - Be available and fault-tolerant (without losing uploads).
 - Handle high throughput (~10k to 100k RPS) and millions of concurrent (simultaneous) connections.
 - Have fast loading times and minimal latency.
@@ -55,15 +55,15 @@ The system should:
 
 - A normalized database design with `PostgreSQL` can be a starting point for an average-sized app. This avoids complex update operations in a denormalized database.
 - As Access Patterns require more complex join operations and performance bottlenecks emerge, a NoSQL database can be a viable alternative for scalability.
-- Scalability requires a horizontally partitioned distributed database to store video metadata (title, description, URL location, image thumbnail, upload date, view count, etc.). According to the CAP theorem, prioritizing [consistency and partition tolerance](https://github.com/camponogaraviera/full-stack-ai-sw-roadmap/blob/main/backend/database/core/relational_db.md) implies that `MySQL` with [Vitess](https://vitess.io/) can be used.
+- Scalability requires a horizontally partitioned distributed database to store video metadata (title, description, URL location, image thumbnail, upload date, view count, etc.). According to the CAP theorem, prioritizing [availability and partition tolerance](../full_stack/backend/database/fundamentals/cap_theorem.md) implies that `Cassandra` or `DynamoDB` can be used. Note: YouTube itself shards `MySQL` with [Vitess](https://vitess.io/), a viable option when stronger consistency is needed.
 - NoSQL databases are designed for `horizontal scalability at the database level (sharding)` while having the advantage of avoiding JOIN operations at the cost of redundancy.
-- Implement database sharding to split table rows across multiple shards (nodes, servers), improving query performance, scalability, and fault tolerance. [Sharding](https://github.com/camponogaraviera/full-stack-ai-sw-roadmap/blob/main/system_design/horizontal_scaling.md) can be achieved using a shard key.
+- Implement database sharding to split table rows across multiple shards (nodes, servers), improving query performance, scalability, and fault tolerance. [Sharding](../full_stack/system_design/horizontal_scaling.md) can be achieved using a shard key.
 
 2. `Availability`:
 
-- Configured AWS S3 for storing static assets (images/binary blobs, JS, CSS), leveraging automatic scaling to handle peak traffic and multi-AZ replication to ensure availability.
+- Configure Amazon S3 for storing static assets (images/binary blobs, JS, CSS), leveraging automatic scaling to handle peak traffic and multi-AZ replication to ensure availability.
 
-- Use **DynamoDB in on-demand mode** (auto-scaling), instead of provisioned mode, to automatically adjust read and write capacity units based on traffic, preventing [Throttling](https://github.com/camponogaraviera/full-stack-ai-sw-roadmap/blob/main/system_design/celebrity.md).
+- Use **DynamoDB in on-demand mode** (auto-scaling), instead of provisioned mode, to automatically adjust read and write capacity units based on traffic, preventing [Throttling](../full_stack/system_design/celebrity.md).
 
 - Configure a dedicated compute instance to handle peak traffic.
 
@@ -103,10 +103,10 @@ The system should:
 
 2.1 `Low-throughput or short-lived processes (use serverless)`:
 
-- The API for client-server communication can be a [RESTful API](https://github.com/camponogaraviera/full-stack-roadmap/blob/main/backend/api/restfull_api.md) implemented serverless with [Amazon API Gateway HTTP](https://aws.amazon.com/api-gateway/) + [AWS Lambda](https://aws.amazon.com/lambda/).
+- The API for client-server communication can be a [RESTful API](../full_stack/backend/api/arch_styles/restfull_api.md) implemented serverless with [Amazon API Gateway HTTP](https://aws.amazon.com/api-gateway/) + [AWS Lambda](https://aws.amazon.com/lambda/).
   - API Gateway (29-sec timeout) provides a single entry point for clients to interact with various backend services, handling HTTP geo-routing, authentication (Cognito/IAM), throttling, caching, and WebSockets.
   - Lambda executes API logic. It is suitable for short-lived, event-driven applications within Lambda's constraints (15-minute timeout, max [10GB RAM, and 6 vCPU cores](https://aws.amazon.com/about-aws/whats-new/2021/07/aws-lambda-supports-10-gb-memory-6-vcpu-cores-bahrain-osaka-hong-kong-regions/)). **CRUD operations should be implemented directly on Lambda**.
-- As fetching becomes complex and performance bottlenecks emerge, a [GraphQL API](https://github.com/camponogaraviera/full-stack-roadmap/blob/main/backend/api/grahql.md), implemented with [AppSync](https://aws.amazon.com/appsync/)+[Amplify](https://aws.amazon.com/amplify/) or [graphql-http](https://graphql.org/blog/2022-11-07-graphql-http/), can be a viable alternative.
+- As fetching becomes complex and performance bottlenecks emerge, a [GraphQL API](../full_stack/backend/api/query_langs/graphql.md), implemented with [AppSync](https://aws.amazon.com/appsync/)+[Amplify](https://aws.amazon.com/amplify/) or [graphql-http](https://graphql.org/blog/2022-11-07-graphql-http/), can be a viable alternative.
 
   2.2 `High-throughput or long-running processes (e.g., custom video encoding outside AWS MediaConvert)`:
 
@@ -150,11 +150,13 @@ Note: [Amazon IVS](https://aws.amazon.com/ivs/) can handle the entire live video
 
 10. `Caching`: [Amazon ElastiCache](https://aws.amazon.com/pm/elasticache/) (general-purpose), or [Amazon DAX](https://aws.amazon.com/dynamodb/dax/) (purpose-built for DynamoDB). This caching solution stays in the AWS cloud.
 
+---
+
 # Architecture
 
 1. A monolithic architecture with a single database can be a starting point for prototyping and product validation.
 
-2. As systems evolve into distributed microservices with database-per-service patterns, [microservices architecture with Saga pattern](https://github.com/camponogaraviera/full-stack-ai-sw-roadmap/blob/main/system_design/patterns.md) becomes a useful approach for isolation and data consistency. The SAGA workflow can be implemented serverless using `AWS API Gateway`, `AWS Step Functions`, `AWS Lambda`, and `Amazon DynamoDB`. Instead of deleting records, systems typically rely on state transitions and compensating actions to maintain consistency.
+2. As systems evolve into distributed microservices with database-per-service patterns, [microservices architecture with Saga pattern](../full_stack/system_design/patterns/saga.md) becomes a useful approach for isolation and data consistency. The SAGA workflow can be implemented serverless using `AWS API Gateway`, `AWS Step Functions`, `AWS Lambda`, and `Amazon DynamoDB`. Instead of deleting records, systems typically rely on state transitions and compensating actions to maintain consistency.
 
 ---
 
@@ -178,18 +180,17 @@ $$
 
 ## Storage
 
-Suppose each user uploads 5 videos of 100MB per day on average.
+Suppose that 1% of DAU are creators uploading 1 video of 500MB per day (0.5GB/user), on average.
 
-- Storage per user per day: 5 \* 100 MB = 500 MB = 0.5 GB
-- Daily storage usage for 122M DAU = 122M users \* 0.5GB/user = 61M GB = 61,000 TB = 61PB/Day.
-- Monthly storage usage = 61PB/Day \* 30 = 1,830 PB/month.
+- Daily storage usage for 1.22M uploaders = 1.22M users \* 0.5GB/user = 610,000 GB = 610 TB/day.
+- Monthly storage usage = 610 TB/day \* 30 days = 18,300 TB/month = 18.3 PB/month.
 
 ## Bandwidth
 
-The Bandwidth (data transfer), assuming all 61 PB/day of uploaded video data enters the system:
+The Bandwidth (data transfer), considering an ingress of 610 TB of data stored per day:
 
 $$
-\frac{61 \space PB}{(24 \times 3600 \space seconds)} \sim 706 \space GB/second
+\frac{610 \space TB}{(24 \times 3600 \space seconds)} \sim 7.06 \space GB/second
 $$
 
 ---
@@ -211,11 +212,12 @@ Within a monolithic architecture, it is common to have a single relational datab
 
 A minimal version of the system has the following entity chart:
 
-| Entity  | Primary Key: PK | Sort Key: SK  |
-| ------- | --------------- | ------------- |
-| User    | USER#username   | USER#username |
-| Videos  | VIDEO#VideoID   | VIDEO#VideoID |
-| Reviews | VIDEO#VideoID   | REV#ReviewID  |
+| Entity               | Primary Key: PK | Sort Key: SK  |
+| -------------------- | --------------- | ------------- |
+| User                 | USER#username   | USER#username |
+| Videos               | VIDEO#VideoID   | VIDEO#VideoID |
+| Videos (by uploader) | USER#username   | VIDEO#VideoID |
+| Reviews              | VIDEO#VideoID   | REV#ReviewID  |
 
 ## Single Relational Database Design
 
@@ -240,7 +242,7 @@ A minimal version of the system has the following entity chart:
    - userID (uuid) - Foreign Key referencing the Users table
    - videoID (uuid) - Foreign Key referencing the Videos table
    - rating (int)
-   - comment (varchar)
+   - feedback (varchar)
    - createdAt (timestamp)
 
 ---
@@ -261,13 +263,14 @@ Access patterns are required to be known before modeling DynamoDB Tables. Recall
    - Partition Key (PK): `USER#username`
    - Sort key (SK): `USER#username`
    - Attributes: `Username`, `Email`, `Name`, `Role`, `DateJoined`, etc.
-   - Post: use `PutItem` with `PK` and `SK` both as `USER#username`.
+   - Post: use `TransactWriteItems` with two `Put` operations, each with the condition `attribute_not_exists(PK)`. One item with `PK` and `SK` both as `USER#username`, and one uniqueness marker item with `PK` and `SK` both as `EMAIL#email`. If either already exists, the whole transaction fails.
 
 2. Upload a Video:
    - Partition Key (PK): `VIDEO#VideoID`
    - Sort key (SK): `VIDEO#VideoID`
    - Attributes: `VideoID`, `VideoTitle`, `Description`, `Timestamp`, `URL`, etc.
-   - Post: use `PutItem` with `PK` and `SK` both as `VIDEO#VideoID`.
+   - Post: use `TransactWriteItems` to write the video item with `PK` and `SK` both as `VIDEO#VideoID`, plus a denormalized copy in the uploader's item collection with `PK` as `USER#username` and `SK` as `VIDEO#VideoID` (used by access pattern 3).
+
 3. Fetch all Videos from a particular User:
    - Partition Key (PK): `USER#username`
    - Sort key (SK): `VIDEO#VideoID`
@@ -282,9 +285,9 @@ Access patterns are required to be known before modeling DynamoDB Tables. Recall
 
 5. Search for a Video:
    - DynamoDB:
-     - Partition Key (PK): `VIDEO#<VideoID>`
-     - Sort key (SK): `METADATA`
-     - Store video metadata such as title, description, tags, etc.
+     - Partition Key (PK): `VIDEO#VideoID`
+     - Sort key (SK): `VIDEO#VideoID`
+     - Read the video item written in access pattern 2, which holds metadata such as title, description, tags, etc.
    - OpenSearch:
      - Index searchable fields such as title, description, and tags.
      - [Perform a search query using OpenSearch](https://aws.amazon.com/blogs/database/implementing-search-on-amazon-dynamodb-data-using-zero-etl-integration-with-amazon-opensearch-service/).
@@ -307,7 +310,7 @@ Access patterns are required to be known before modeling DynamoDB Tables. Recall
     <th>Attribute 2</th>
     <th>Attribute 3</th>
     <th>Attribute 4</th>
-    <td>Attribute 5</td>
+    <th>Attribute 5</th>
   </tr>
   <tr> 
   </tr> 

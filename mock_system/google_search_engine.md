@@ -47,9 +47,9 @@ Note: p99 < 100ms means that 99% of all requests should complete within 100 mill
 
 1. `Scalability`:
 
-- Scalability requires a horizontally partitioned distributed database. According to the CAP theorem, prioritizing [consistency and partition tolerance](https://github.com/camponogaraviera/full-stack-ai-sw-roadmap/blob/main/backend/database/core/cap_theorem.md) implies that `Apache HBase`, `Bigtable`, `Colossus`, or `MongoDB` can be used. However, SSTables + LSM-tree are better for fast range scan-heavy workloads. Google currently uses [Colossus](https://cloud.google.com/blog/products/storage-data-transfer/a-peek-behind-colossus-googles-file-system), while early versions used [Bigtable](https://cloud.google.com/bigtable), which is built on SSTables (for storage) + LSM-tree (for write efficiency).
+- Scalability requires a horizontally partitioned distributed database. According to the CAP theorem, prioritizing [consistency and partition tolerance](../full_stack/backend/database/fundamentals/cap_theorem.md) implies that `Apache HBase`, `Bigtable`, or `MongoDB` can be used. However, SSTables + LSM-tree are better for fast range scan-heavy workloads. Google uses [Bigtable](https://cloud.google.com/bigtable), which is built on SSTables (for storage) + LSM-tree (for write efficiency), and stores its files on [Colossus](https://cloud.google.com/blog/products/storage-data-transfer/a-peek-behind-colossus-googles-file-system), Google's distributed file system (the successor to GFS).
 - NoSQL databases are designed for `horizontal scalability at the database level (sharding)` while having the advantage of avoiding JOIN operations at the cost of redundancy.
-- Implement database sharding to split table rows across multiple shards (nodes, servers), improving query performance, scalability, and fault tolerance. [Sharding](https://github.com/camponogaraviera/full-stack-ai-sw-roadmap/blob/main/system_design/horizontal_scaling.md) can be achieved using range-based sharding (e.g., `term_hash`).
+- Implement database sharding to split table rows across multiple shards (nodes, servers), improving query performance, scalability, and fault tolerance. [Sharding](../full_stack/system_design/horizontal_scaling.md) can be achieved using hash-based sharding on the index term (e.g., `hash(term) mod N`), which spreads terms evenly across shards and avoids hotspots caused by popular term ranges.
 
 2. `Availability`:
 
@@ -80,18 +80,18 @@ Note: p99 < 100ms means that 99% of all requests should complete within 100 mill
 1. `Frontend`:
 
 - The Web UI can be implemented with React.js or Lynx.
-- The frontend (static part) can be hosted with built-in SSL/TLS certificate support via [AWS Amplify](https://github.com/camponogaraviera/aws/blob/main/services/hosting/hosting.md#aws-amplify).
+- The frontend (static part) can be hosted with built-in SSL/TLS certificate support via [AWS Amplify](https://aws.amazon.com/amplify/).
 
 2. `Web Crawler:` used to fetch web pages and store compressed crawled data in a distributed file system (e.g., [Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) or [Amazon S3](https://aws.amazon.com/s3/)). Distributed crawlers (e.g., [Apache Nutch](https://nutch.apache.org/) or [Googlebot](https://developers.google.com/search/docs/crawling-indexing/googlebot)) can run on [Kubernetes](https://kubernetes.io/) or [Amazon EC2](https://aws.amazon.com/pm/ec2). Google might crawl a news site every few minutes to catch breaking news before anyone searches for it.
 3. `Parser:` used to parse the raw HTML data fetched by the crawler to extract meaningful content such as text, links, metadata, and other signals.
 4. `Storage:` used to store parsed data (e.g., [Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html), [Amazon S3](https://aws.amazon.com/s3/), or Colossus).
-5. `Indexer:` used to map documents to a vocabulary of tokens/keywords or other signals (e.g., formatting, position). This stage can use [EKS to schedule Apache Spark applications on Kubernetes](https://aws.amazon.com/blogs/containers/best-practices-for-running-spark-on-amazon-eks/). Data can be stored in a NoSQL key-value database (e.g., [DynamoDB](https://github.com/camponogaraviera/full-stack-ai-sw-roadmap/blob/main/backend/database/technologies/dynamodb.md) or [Bigtable](https://cloud.google.com/bigtable)).
+5. `Indexer:` used to map documents to a vocabulary of tokens/keywords or other signals (e.g., formatting, position). This stage can use [EKS to schedule Apache Spark applications on Kubernetes](https://aws.amazon.com/blogs/containers/best-practices-for-running-spark-on-amazon-eks/). Data can be stored in a NoSQL key-value database (e.g., [DynamoDB](../full_stack/backend/database/technologies/dynamodb.md) or [Bigtable](https://cloud.google.com/bigtable)).
 6. `Inverted Index (Posting List) Service:` used to map each keyword/token in the vocabulary to a list containing references/pointers/indexes to the respective documents/webpages containing that keyword. A scalable database (e.g., [Bigtable](https://cloud.google.com/bigtable)) can be used to store the tokens and their corresponding **posting lists of indexes**, and [MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) can be used for indexing.
 7. `Page Ranking Service:` to rank documents retrieved by the query service based on their relevance to the user's search keyword.
 8. `Query Service:` to handle user search queries, retrieving and returning relevant documents from the `inverted indexer`.
 9. `Caching Service`: to `reduce latency` by caching the most frequently queried search terms and web pages from the `inverted indexer`.
 
-- **In-memory Caching**: use Redis, Memcached, or [Amazon Elasticache](https://aws.amazon.com/pm/elasticache/) (general-purpose) to cache hot queries.
+- **In-memory Caching**: use Redis, Memcached, or [Amazon ElastiCache](https://aws.amazon.com/pm/elasticache/) (general-purpose) to cache hot queries.
 - **Edge Caching**: use CloudFront (CDN) to cache static results.
 - **Index Caching**: use Elasticsearch to keep **inverted index** segments in memory.
 
@@ -101,7 +101,7 @@ Note: p99 < 100ms means that 99% of all requests should complete within 100 mill
 
 A monolithic architecture can be a starting point for prototyping and product validation.
 
-As the system scales and matures, [microservices architecture with Saga pattern](https://github.com/camponogaraviera/full-stack-ai-sw-roadmap/blob/main/system_design/patterns.md) is the way to go for isolation and data consistency in a distributed system/application where business transactions span multiple microservices. The saga workflow can be implemented serverless with `Amazon API Gateway`, `AWS Step Functions`, `AWS Lambda`, and [Amazon Keyspaces](https://aws.amazon.com/pt/keyspaces/), which is `compatible with Apache Cassandra`.
+As the system scales and matures, [microservices architecture with Saga pattern](../full_stack/system_design/patterns/saga.md) is the way to go for isolation and data consistency in a distributed system/application where business transactions span multiple microservices. The saga workflow can be implemented serverless with `Amazon API Gateway`, `AWS Step Functions`, `AWS Lambda`, and [Amazon Keyspaces](https://aws.amazon.com/pt/keyspaces/), which is `compatible with Apache Cassandra`.
 
 Consider Sagas for: **Crawling → Indexing → Ranking** pipelines.
 
