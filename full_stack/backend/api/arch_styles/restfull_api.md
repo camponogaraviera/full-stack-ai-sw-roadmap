@@ -115,9 +115,13 @@ There are four such operations:
 
 # Route Handler vs Middleware
 
-- A route handler is a callback function that contains the logic responsible for handling requests sent to a specific URL endpoint (route). It receives the request and response objects as arguments. In the context of defining routes in a framework like Express.js, the `app` object's route methods (such as `app.get`, `app.post`, etc.) receive a URL route and the route handler as arguments.
+- A route is what the server defines. It is the server-side rule that maps an endpoint to the code that handles it. In Express.js, a route is defined with a route method, such as `app.get('/users/:userId', callback)`. One route serves many concrete URLs (e.g., `/users/1`, `/users/2`).
 
-- A middleware is a callback function that takes a request object, a response object, and a `next()` function. It either passes control to another middleware function by calling `next()` or returns a response to the client, terminating the request-response cycle. For example, the argument of app.use(express.json()) returns a third-party middleware function that parses the request body into a JSON object and then passes control to the next middleware or route handler. Every route handler is a middleware function.
+- An endpoint is what the client sees. It is an operation an API exposes to clients, identified by an HTTP method and a URL path, such as `GET /users/:userId` or `DELETE /users/:userId`. Within one API, endpoints are usually written as `method + URL path`.
+
+- A route handler is a callback function attached to a route. It contains the logic for handling requests that match the route's method and URL path, and for sending back a response. It receives the request and response objects as arguments. In Express.js, the `app` object's route methods (e.g., `app.get`, `app.post`, etc.) receive a URL path and one or more route handlers as arguments.
+
+- A middleware is a callback function that takes a request object, a response object, and a `next` function. It either passes control to the next middleware function by calling `next()` or sends a response to the client, terminating the request-response cycle. For example, in `app.use(express.json())`, `express.json()` returns Express's built-in middleware function that parses JSON request bodies into a JavaScript object on `req.body` and then passes control to the next middleware or route handler. In Express.js, every route handler is a middleware function.
 
 ## Middleware Example
 
@@ -190,7 +194,7 @@ app.get("/users/:userId", (req, res) => {
   // Find the user by ID querying the mock database:
   const user = users.find((user) => user.userId === parseInt(userId)); // Uses JavaScript built-in array method.
 
-  // If the user does not exist, send a JSON response to the client with status code 404 (Not Found):
+  // If the user does not exist, send a response to the client with status code 404 (Not Found):
   if (!user)
     return res.status(404).send(`User with id ${userId} was not found!`);
 
