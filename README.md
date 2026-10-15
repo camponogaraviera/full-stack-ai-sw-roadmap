@@ -281,7 +281,7 @@ By the end of the course, you will have access to two production-grade applicati
     - [WebRTC](full_stack/backend/api/communication/webrtc.md)
 
 - API Architectural Styles
-  - [RESTful APIs](full_stack/backend/api/arch_styles/restfull_api.md)
+  - [RESTful APIs](full_stack/backend/api/arch_styles/restful_api.md)
 
 - API Reliability & Safety
   - [Idempotency Keys](full_stack/backend/api/reliability_safety/idem_keys.md)
