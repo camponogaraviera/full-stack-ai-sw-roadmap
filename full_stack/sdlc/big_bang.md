@@ -1,0 +1,21 @@
+<div align='center'>
+    <h1> Software Development Life Cycle (SDLC) </h1>
+    <h2> Big Bang Model </h2>
+</div>
+
+# Table of Contents
+
+- [Introduction](#introduction)
+- [References](#references)
+
+# Introduction
+
+This model is an ad-hoc and high-risk approach where development is done with little planning. The entire software is built and tested as a whole.
+
+It is only suited for small projects with simple requirements or for experimentation.
+
+---
+
+# References
+
+[1]
