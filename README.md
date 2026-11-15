@@ -33,15 +33,13 @@
 
 # Introduction
 
-This course provides a strong foundation for designing and developing production AI-powered web and mobile applications end-to-end.
+This course provides a strong foundation for designing and developing production-grade AI-powered web and mobile applications end-to-end.
 
 Throughout the course, you will learn the fundamentals of frontend/backend development and system design while gaining hands-on experience with a modern tech stack: modern JavaScript (ES6+), React with hooks, Node.js, PyTorch, and AWS.
+
+This course will give you the confidence to develop production-quality software and critically assess AI-generated code.
 
-Code examples follow official documentation, and references are provided throughout.
-
-This course will give you the confidence to write production-grade software by hand and critically assess AI-generated code.
-
-By the end of the course, you will have access to two production-grade applications that served as the foundation for products developed at two startups.
+By the end of the course, you will have access to two AI-powered applications that served as the foundation for products developed at two startups.
 
 # Table of Contents
 
@@ -78,7 +76,7 @@ By the end of the course, you will have access to two production-grade applicati
     - Design the Frontend, Backend, and In-Browser LLM Inference Pipeline of a Web Chat Application
     - Design the Frontend, Backend, and On-Device LLM Inference Pipeline of a Mobile Chat Application
 
-- [6. Production-Grade Applications](#apps)
+- [6. AI-Powered Applications](#apps)
   - Chat Horizon: Full-Stack LLM Chat Application with In-Browser Inference
   - Social Eats: Full-Stack Food Discovery Mobile App with 3D Interactivity, RAG-Based Recommendations, and On-Device LLM Inference
 
@@ -496,7 +494,7 @@ By the end of the course, you will have access to two production-grade applicati
 
 ---
 
-<!-- #region 6. Production-Grade Applications -->
+<!-- #region 6. AI-Powered Applications -->
 <details open>
   <summary><h1 id="apps">6. Production-Grade Applications</h1></summary>
 
