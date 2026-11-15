@@ -33,7 +33,7 @@
 
 # Introduction
 
-This course provides a strong foundation for designing and developing production-grade AI-powered web and mobile applications end-to-end.
+This course provides a strong foundation for designing and developing production AI-powered web and mobile applications end-to-end.
 
 Throughout the course, you will learn the fundamentals of frontend/backend development and system design while gaining hands-on experience with a modern tech stack: modern JavaScript (ES6+), React with hooks, Node.js, PyTorch, and AWS.
 
