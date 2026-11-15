@@ -31,12 +31,14 @@
   <h1> Full-Stack AI Software Engineer Roadmap </h1>
 </div>
 
-# Introduction
+# Introduction
+
 
 This course provides a strong foundation for designing and developing production AI-powered web and mobile applications end-to-end.
 
 Throughout the course, you will learn the fundamentals of frontend/backend development and system design while gaining hands-on experience with a modern tech stack: modern JavaScript (ES6+), React with hooks, Node.js, PyTorch, and AWS.
-
+
+
 This course will give you the confidence to develop production-quality software and critically assess AI-generated code.
 
 By the end of the course, you will have access to two AI-powered applications that served as the foundation for products developed at two startups.
@@ -72,13 +74,14 @@ By the end of the course, you will have access to two AI-powered applications th
     - Design a Restaurant Reservation System
     - Design a YouTube-like On-Demand Video Streaming Service
     - Design a Search Engine like Google
-  - Production AI Systems 
+  - Production AI Systems 
+
     - Design the Frontend, Backend, and In-Browser LLM Inference Pipeline of a Web Chat Application
     - Design the Frontend, Backend, and On-Device LLM Inference Pipeline of a Mobile Chat Application
 
 - [6. AI-Powered Applications](#apps)
   - Chat Horizon: Full-Stack LLM Chat Application with In-Browser Inference
-  - Social Eats: Full-Stack Food Discovery Mobile App with 3D Interactivity, RAG-Based Recommendations, and On-Device LLM Inference
+  - Social Eats: Full-Stack Food Discovery Mobile App with RAG-Based Recommendations and On-Device LLM Inference
 
 - [References](#references)
 
@@ -522,7 +525,7 @@ By the end of the course, you will have access to two AI-powered applications th
   <img src="https://github.com/camponogaraviera/camponogaraviera.github.io/blob/main/assets/chat_horizon/backend1.png" width="45%" />
 </p>
 
-- [Social Eats: Full-Stack Food Discovery Mobile App with 3D Interactivity, RAG-Based Recommendations, and On-Device LLM Inference](https://github.com/camponogaraviera/social-eats)
+- [Social Eats: Full-Stack Food Discovery Mobile App with RAG-Based Recommendations and On-Device LLM Inference](https://github.com/camponogaraviera/social-eats)
 
 <p align="center">
   <img src="https://github.com/camponogaraviera/camponogaraviera.github.io/blob/main/assets/social_eats/frontend1.jpg" width="25%" />
