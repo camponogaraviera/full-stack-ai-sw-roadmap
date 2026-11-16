@@ -499,7 +499,7 @@ By the end of the course, you will have access to two AI-powered applications th
 
 <!-- #region 6. AI-Powered Applications -->
 <details open>
-  <summary><h1 id="apps">6. Production-Grade Applications</h1></summary>
+  <summary><h1 id="apps"> 6. AI-Powered Applications </h1></summary>
 
 (Private)
 
